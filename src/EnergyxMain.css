@@ -1,0 +1,348 @@
+.Mostouterdiv {
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-start;
+ align-items: center;
+ background-color: white;
+ width: 100vw;
+ height: 100vh;
+}
+
+.Topdiv {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ align-self: flex-start;
+ background-color: #3366ff;
+ width: 99vw;
+ height: 70vh;
+ border-top-left-radius: 2vh;
+ border-top-right-radius: 2vh;
+  border: 1px red solid;
+}
+
+.Topinsidediv {
+  display: flex;
+  flex-direction: column;
+  background-color: #3366ff;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  height: 68vh;
+  border: 1px red solid;
+}
+
+.Topinsidetopdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 88vw;
+  height: 5vh; 
+  border: 1px red solid;
+}
+
+.Topinsidetopleftdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+  height: 5vh;
+  border: 1px red solid;
+}
+
+.Topinsidetoprightdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  margin-left: auto;
+  margin-right: 0vw;
+  width: 45vw;
+  height: 5vh;
+  border: 1px red solid;
+}
+
+.Corporatebutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 8vw;
+  height: 5vh;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+.Trainingmenubuttondiv{
+  display: block;
+  height: fit-content;
+  border: 5px black solid;
+}
+
+.Trainingbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+  height: 5vh;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+.Trainingovershow {
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 10vw;
+  height: 15vh;
+  border: 1px red solid;
+}
+
+.Trainingoverhid {
+  display: none;
+}
+
+.Listedclassbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 9vw;
+  height: 4.9vh;
+  border: none;
+  font-size: 1vw;
+  color: white;
+  background-color: transparent;
+}
+
+.Trainerregisterbutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 9vw;
+  height: 4.9vh;
+  border: none;
+  font-size: 1vw;
+  color: white;
+  background-color: transparent;
+}
+
+.Customerpagebutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 9vw;
+  height: 4.9vh;
+  border: none;  
+  font-size: 1vw;
+  color: white;
+  background-color: transparent;
+}
+
+.Topinsidebottomdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 88vw;
+  height: 62vh;
+  color: white;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+
+.Topinsidebottomleftdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 42vw;
+  height: 60vh;
+  background-color: #3366ff;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+.Companyuitextdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 38vh;
+  background-color: #3366ff;
+  border: 1px red solid;
+}
+
+.Companyuifirsttextdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 38vw;
+  height: 8vh;
+  background-color: #3366ff;
+  text-align: justify;
+  border: 1px red solid;
+}
+
+
+.Companyuisecondtextdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 38vw;
+  height: 20vh;
+  background-color: #3366ff;
+  text-align: justify;
+  border: 1px red solid;
+}
+
+.Topinsidebottomrightdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 42vw;
+  height: 60vh;
+  color: white;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+.Middlediv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 88vw;
+  height: 8vh;
+  background-color: white;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+
+.Middleleftdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 42vw;
+  height: 7vh;
+  background-color: white;
+  text-align: justify;
+  border: 1px red solid;
+}
+
+
+.Middlerightdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 42vw;
+  height: 7vh;
+  background-color: white;
+  text-align: justify;
+  border: 1px red solid;
+}
+
+.Bottomdiv {
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 88vw;
+  height: 20vh;
+  background-color: white;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+.Backenddiv, .Frontenddiv, .Connectivitydiv {
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 29vw;
+  height: 18vh;
+  background-color: white;
+  border: 1px red solid;
+ } 
+
+.Backendlogodiv, .Frontendlogodiv, .Connectivitylogodiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 8vw;
+  height: 10vh;
+  background-color: white;
+  border: 1px red solid;
+}
+
+.Backendboxdiv, .Frontendboxdiv, .Connectivityboxdiv {
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 4vw;
+  height: 8vh;
+  background-color: #3366ff;
+  border-radius: 2vh;
+  border: 1px red solid;
+}
+
+.Backendtitletextdiv, .Frontendtitletextdiv, .Connectivitytitletextdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 20vw;
+  height: 17vh;
+  background-color: white;
+  border: 1px red solid;
+}
+
+.Backendtitlediv, .Frontendtitlediv, .Connectivitytitlediv {
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 18vw;
+  height: 5vh;
+  background-color: white;
+  border: 1px red solid;
+}
+
+.Backendtextdiv, .Frontendtextdiv, .Connectivitytextdiv {
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 18vw;
+  height: 11vh;
+  background-color: white;
+  border: 1px red solid;
+}
+
+
