@@ -110,6 +110,7 @@
   width: 10vw;
   height: 15vh;
   border: 1px red solid;
+  background-color: blue;
 }
 
 .Trainingoverhid {
@@ -155,7 +156,27 @@
   background-color: transparent;
 }
 
-.Topinsidebottomdiv {
+.Adminpagehid {
+  display: none;
+}
+
+.Adminpageshow{
+}
+
+
+.Trainersyllabushid {
+  display: none;
+}
+
+.Trainersyllabusshow{
+}
+
+
+.Topinsidebottomdivhid {
+  display: none;
+}
+
+.Topinsidebottomdivshow {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -179,6 +200,7 @@
   font-family: "Arial", Segoe UI;
   border: 1px red solid;
 }
+
 
 .Companyuitextdiv {
   display: flex;
@@ -216,7 +238,25 @@
   border: 1px red solid;
 }
 
-.Topinsidebottomrightdiv {
+.Testiinputhid {
+  display: none;
+}
+
+.Testiinputshow {
+ }
+
+.Testihid {
+  display: none;
+}
+
+.Testishow {
+}
+
+.Customerhid {
+  display: none;
+}
+
+.Customershow {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -228,7 +268,28 @@
   border: 1px red solid;
 }
 
-.Middlediv {
+
+.Trainhid {
+  display: none;
+}
+
+.Trainshow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 42vw;
+  height: 60vh;
+  color: white;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+.Middledivhid {
+ display: none;
+}
+
+.Middledivshow {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -266,7 +327,11 @@
   border: 1px red solid;
 }
 
-.Bottomdiv {
+.Bottomdivhid {
+ display: none;
+}
+
+.Bottomdivshow {
  display: flex;
   flex-direction: row;
   justify-content: center;

@@ -1,0 +1,172 @@
+.Outertrainerpage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 88vw;
+  height: 58vh;
+  color: white;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+.Leftsidetrainerdiv, .Rightsidetrainerdiv{
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 42vw;
+  height: 56vh;
+  color: white;
+  border: 1px red solid;
+}
+
+.Trainernametextdiv, .Invitecodetraintextdiv, .Invitecodetraindiv, .Trainingobjectivetextdiv, 
+.Trainingperiodtextdiv {
+display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  color: white;
+  border: 1px red solid;
+}
+
+.Trainernamespan, .Invitecodetraintextspan, .Invitecodetrainspan, .Trainingobjectspan, .Trainingperiodspan {
+ font-size: 1.1vw;
+ font-family: "Arial", Segoe UI;
+ font-weight: bold;
+}
+
+.Trainerspan {
+ font-size: 1.1vw;
+ font-family: "Arial", Segoe UI;
+}
+
+.Trainingperiodinput {
+ width: 38vw;
+ height: 3vh;
+ border: none;
+ outline: none;
+}
+
+
+.Trainernamediv {
+display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  color: white;
+  border: 1px red solid;
+
+}
+
+.Trainingobjectiveinputdiv  {
+display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 13vh;
+  background-color: white;
+  border: 1px black solid;
+  border-radius: 1vh;
+}
+
+.Trainingperiodinputdiv {
+display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  background-color: white;
+   border: 1px black solid;
+  border-radius: 1vh;
+}
+
+.Trainingobjectiveinputta {
+ width: 38vw;
+ height: 11vh;
+ border: none;
+ outline: none;
+ resize: none;
+white-space: nowrap; /* will prevent the default wrapping of text to next line */
+overflow-x: auto; /* will make horizontal scroll-bar appear only when needed */
+ overflow-y: auto;
+}
+
+.Trainingsyllabustextdiv, .Labsyllabustextdiv {
+display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  color: white;
+  border: 1px red solid;
+}
+
+.Trainingsyllabusspan, .Labsyllabusspan {
+  font-size: 1.1vw;
+  font-family: "Arial", Segoe UI;
+  font-weight: bold;
+}
+
+.Trainingsyllabusinputdiv, .Labsyllabusinputdiv {
+display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 18vh;
+  background-color: white;
+    border: 1px black solid;
+  border-radius: 1vh;
+}
+
+.Trainingsyllabusinputta {
+ width: 38vw;
+ height: 15vh;
+ border: none;
+ outline: none;
+ resize: none;
+white-space: nowrap; /* will prevent the default wrapping of text to next line */
+overflow-x: auto; /* will make horizontal scroll-bar appear only when needed */
+ overflow-y: auto;
+}
+
+.Labsyllabusinputta {
+ width: 38vw;
+ height: 15vh;
+ border: none;
+ outline: none;
+ resize: none;
+white-space: nowrap; /* will prevent the default wrapping of text to next line */
+overflow-x: auto; /* will make horizontal scroll-bar appear only when needed */
+ overflow-y: auto;
+}
+
+.Resetsubmitbuttontraindiv {
+display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  justify-content: flex-end;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  color: white;
+  border: 1px red solid;
+}
+
+.Resetbutton, .Submitbutton {
+font-size: 1vw;
+font-family: "Arial", Segoe UI;
+border-radius: 1vh;
+background-color: blue;
+  color: white;
+}
+

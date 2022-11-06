@@ -1,0 +1,158 @@
+.Outerpage {
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 88vw;
+  height: 58vh;
+  color: white;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+.Leftsidediv, .Rightsidediv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 42vw;
+  height: 56vh;
+  color: white;
+  border: 1px red solid;
+}
+
+.Rightsidediv {
+ gap: 1vh;
+}
+
+.Companynametextdiv, .Invitationcodetextdiv, .Nametextdiv, .Positiontextdiv, .Trainingtextdiv {
+ display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  color: white;
+  border: 1px red solid;
+}  
+
+.Companynamespan, .Invitationcodespan, .Namespan, .Positionspan, .Trainingspan {
+ font-size: 1.1vw;
+ font-family: "Arial", Segoe UI;
+ font-weight: bold;
+}
+
+.Testimonispan {
+ font-size: 1.1vw;
+ font-family: "Arial", Segoe UI;
+ font-weight: bold;
+}
+
+.Companyspan, .Invitecodespan {
+ font-size: 1.1vw;
+ font-family: "Arial", Segoe UI;
+}
+
+.Companytextdiv, .Invitecodetextdiv {
+ display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  color: white;
+  border: 1px red solid;
+}
+
+.Nameinputdiv, .Positioninputdiv, .Traininginputdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  background-color: white;
+  border: 1px black solid;
+  border-radius: 1vh;
+}
+
+
+.Nameinputgrey, .Positioninputgrey, .Traininginputgrey {
+  width: 38vw;
+  height: 3vh;
+  border: none;
+  outline: none;
+  font-size: 1.1vw;
+  font-family: "Arial", Segoe UI;
+  color: grey;
+}
+
+
+.Nameinput, .Positioninput, .Traininginput {
+  width: 38vw;
+  height: 3vh;
+  border: none;
+  outline: none;
+  font-size: 1.1vw;
+  font-family: "Arial", Segoe UI;
+  color: black;
+}
+
+.Testimonitextdiv {
+ display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  color: white;
+  border: 1px red solid;
+}  
+
+.Testimoniinputdiv {
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 39vh;
+  color: white;
+  border: 1px black solid;
+  border-radius: 1vh;
+  background-color: white;
+}
+
+.Textareainput {
+  width: 38vw;
+  height: 37vh;
+  font-size: 1.1vw;
+  font-family: "Arial", Segoe UI;
+  color: black;
+ overflow: hidden;
+   resize: none; 
+   border: none;
+   outline: none;
+}
+
+.Resetsubmitbuttondiv {
+ display: flex;
+  flex-direction: row;
+  gap: 1vw;
+ justify-content: flex-end;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  color: white;
+  border: 1px red solid;
+}
+
+
+.Resettestibutton, .Submittestibutton {
+font-size: 1vw;
+font-family: "Arial", Segoe UI;
+border-radius: 1vh;
+background-color: blue;
+  color: white;
+}
+ 
+

@@ -1,0 +1,85 @@
+.Testiouterpage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 42vw;
+  height: 55vh;
+  color: white;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+.Titletesti{
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  background-color: blue;
+  border: 1px black solid;
+  border-top-left-radius: 2vh;
+  border-top-right-radius: 2vh;
+}
+
+.Contenttesti{
+ display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 41vh;
+  background-color: white;
+  border: 1px black solid;
+}
+
+.Testimonialtextdiv {
+ display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 36vw;
+  height: 29vh;
+  background-color: purple;
+  border: 1px red solid;
+}
+
+.Testimonialtextarea{
+  width: 39vw;
+  height: 40vh;
+ font-size: 1.2vw;
+ font-family: "Arial", Segoe UI;
+ color: black;
+ resize: none;
+  border: none;
+  outline: none;
+}
+
+.Nametexttestimonialdiv, .Positiontexttestimonialdiv, .Companytexttestimonialdiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 39vw;
+  height: 4vh;
+  color: black;
+  font-size: 1.2vw;
+  font-family: "Arial", Segoe UI;
+  background-color: white;
+  border: 1px red solid;
+}
+
+.Slidetesti{
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 40vw;
+  height: 5vh;
+  color: white;
+  border: 1px red solid;
+  background-color: blue;
+  border-bottom-left-radius: 2vh;
+  border-bottom-right-radius: 2vh;
+}

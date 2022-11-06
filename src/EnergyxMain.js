@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import './EnergyxMain.css';
 import Chevrondown from './Chevrondown';
 import Energyxpng from './Energyx.png';
@@ -6,10 +6,89 @@ import Front from './Front';
 import Back from './Back';
 import Connectivity from './Connectivity';
 import Signinpage from './Signinpage';
+import Testimonial from './Testimonial';
+import Adminpage from './Adminpage';
+import Testiinput from './Testiinput';
+import Trainersyllabus from './Trainersyllabus';
 
 const EnergyxMain = () => {
     
 const [menuover, setMenuover] = useState({ insidediv: 'no', trainingover: 'Trainingoverhid'}); 
+const custtrain = useRef({vis: 'null'});
+const [bottomchoice, setBottomchoice] = useState({ testi: "Testishow", cust: "Customerhid", 
+train: "Trainhid" });
+const [admintopbottomdiv, setAdmintopbottomdiv] = useState({admin: "Adminpagehid", 
+topbottomdiv: "Topinsidebottomdivshow", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid"});
+
+
+const opentrainsyllabus = (truefalse) => {
+    if(truefalse === "true"){
+        if(admintopbottomdiv.trainersyllabus === "Trainersyllabushid"){
+          let newadmintopbottomdiv = {admin: "Adminpagehid", 
+topbottomdiv: "Topinsidebottomdivhid", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabusshow",
+trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid" }
+          setAdmintopbottomdiv(newadmintopbottomdiv);
+}
+}
+}
+
+const opentestiin = (truefalse) => {
+    if(truefalse === "true"){
+        if(admintopbottomdiv.testiinput === "Testiinputhid"){
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+topbottomdiv: "Topinsidebottomdivhid", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+testiinput: "Testiinputshow", trainersyllabus: "Trainersyllabusshow",
+trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
+          setAdmintopbottomdiv(newadmintopbottomdiv);
+}
+}
+}
+
+const backfromtesti = (truefalse) => {
+   if(truefalse === "true"){
+ if(admintopbottomdiv.topbottomdiv === "Topinsidebottomdivhid"){
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+topbottomdiv: "Topinsidebottomdivshow", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
+          setAdmintopbottomdiv(newadmintopbottomdiv);
+}
+}
+}       
+
+
+const backoutfromtrain = (truefalse) => {
+   if(truefalse === "true"){
+ if(admintopbottomdiv.topbottomdiv === "Topinsidebottomdivhid"){
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+topbottomdiv: "Topinsidebottomdivshow", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
+          setAdmintopbottomdiv(newadmintopbottomdiv);
+}
+}
+}
+
+const openedadmin = (truefalse) => {
+    if(truefalse === "true"){
+        if(admintopbottomdiv.admin === "Adminpagehid"){
+          let newadmintopbottomdiv =  {admin: "Adminpageshow", 
+topbottomdiv: "Topinsidebottomdivhid", middlediv: "Middledivdiv", bottomdiv: "Bottomdivhid",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
+          setAdmintopbottomdiv(newadmintopbottomdiv);
+}
+}
+}
 
 const handleOvertr = (event) => {
       event.stopPropagation();
@@ -56,16 +135,48 @@ const handleListedclass = (event) => {
      event.stopPropagation();
       event.preventDefault();
 
+        
 }
 
 const handleTrainerregister = (event) => {
      event.stopPropagation();
       event.preventDefault();
+
+      if(bottomchoice.train === "Trainhid"){
+           let newbottomchoice = { testi: "Testihid", cust: "Customerhid", 
+train: "Trainshow" };
+        custtrain.current.vis = "trainerclick";
+    let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+topbottomdiv: "Topinsidebottomdivshow", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
+
+         setBottomchoice(newbottomchoice);
+         setAdmintopbottomdiv(newadmintopbottomdiv);
+  }
+
 }
 
 const handleCustomerpage = (event) => {
      event.stopPropagation();
       event.preventDefault();
+
+      if(bottomchoice.cust === "Customerhid"){
+           let newbottomchoice = { testi: "Testihid", cust: "Customershow", 
+train: "Trainhid" };
+    let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+topbottomdiv: "Topinsidebottomdivshow", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
+
+        custtrain.current.vis = "customerclick";
+
+         setBottomchoice(newbottomchoice);
+         setAdmintopbottomdiv(newadmintopbottomdiv);
+          
+  }
 }
 
 return(
@@ -100,7 +211,16 @@ return(
 </div> {/* closing for trainingmenubutton */}
 </div> {/* closing for topinsidetoprightdiv */}
 </div>  {/* closing for topinsidetopdiv */}
-<div className="Topinsidebottomdiv">
+<div className={admintopbottomdiv.admin} >
+<Adminpage />
+</div>
+<div className={admintopbottomdiv.trainersyllabus} >
+<Trainersyllabus backoutfromtrainsyl={backoutfromtrain}/>
+</div>
+<div className={admintopbottomdiv.testiinput} >
+<Testiinput backoutfromtesti={backfromtesti} />
+</div>
+<div className={admintopbottomdiv.topbottomdiv}>
 <div className="Topinsidebottomleftdiv">
 <div className="Companyuitextdiv">
 <div className="Companyuifirsttextdiv">
@@ -114,13 +234,19 @@ return(
 </div>
 </div>  {/* closing for companyuitextdiv */}
 </div> {/* closing for topinsidebottomleftdiv */}
-<div className="Topinsidebottomrightdiv">
-<Signinpage />
+<div className={bottomchoice.testi} >
+<Testimonial /> 
 </div>
-</div> {/* closing for topinsidebottomdiv */}
+<div className={bottomchoice.train} >
+<Signinpage custortrain={custtrain.current.vis}  openadmin={openedadmin} opentrainersyllabus={opentrainsyllabus}/>
+</div>
+<div className={bottomchoice.cust} >
+<Signinpage custortrain={custtrain.current.vis} opentestiinput={opentestiin}/>
+</div>
+</div> {/* closing for admintopbottomdiv.topbottomdiv */}
 </div> {/* closing for topinsidediv */}
 </div> {/* closing for Topdiv */}
-<div className="Middlediv">
+<div className={admintopbottomdiv.middlediv}>
 <div className="Middleleftdiv">
 <span> Flexible & Viewable Web UI Template </span>
 </div>
@@ -129,7 +255,7 @@ return(
  makes your Web apps get lasting impression. </span> 
 </div>
 </div> {/* closing for middlediv */}
-<div className="Bottomdiv">
+<div className={admintopbottomdiv.bottomdiv}>
 <div className="Backenddiv">
 <div className="Backendlogodiv">
 <div className="Backendboxdiv">
