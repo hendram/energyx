@@ -8,28 +8,63 @@
  height: 100vh;
 }
 
-.Topdiv {
+.Topdivsmall {
  display: flex;
  flex-direction: row;
  justify-content: center;
  align-items: center;
  align-self: flex-start;
- background-color: #3366ff;
+ background: 
+       linear-gradient(rgba(0, 62, 230, 0.6), 
+                      rgba(0, 62, 230, 0.6)
+          ),
+url("./classroom.jpg");
+ background-size: cover;
  width: 99vw;
  height: 70vh;
+ border-top-left-radius: 2vh;
+ border-top-right-radius: 2vh;
+ border: 1px red solid;
+}
+
+.Topdivlarge {
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ align-self: flex-start;
+ width: 99vw;
+ height: 100vh;
+ background: 
+       linear-gradient(rgba(0, 62, 230, 0.6), 
+                      rgba(0, 62, 230, 0.6)
+          ),
+ url("./classroom.jpg");
+ background-size: cover;
+
  border-top-left-radius: 2vh;
  border-top-right-radius: 2vh;
   border: 1px red solid;
 }
 
-.Topinsidediv {
+.Topinsidedivsmall {
   display: flex;
   flex-direction: column;
-  background-color: #3366ff;
   justify-content: center;
   align-items: center;
   width: 90vw;
   height: 68vh;
+  border: 1px red solid;
+}
+
+
+.Topinsidedivlarge {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  height: 98vh;
   border: 1px red solid;
 }
 
@@ -51,6 +86,8 @@
   width: 15vw;
   height: 5vh;
   border: 1px red solid;
+  background-color: white;
+  border-radius: 2.5vh;
 }
 
 .Topinsidetoprightdiv {
@@ -109,8 +146,11 @@
   align-items: center;
   width: 10vw;
   height: 15vh;
+ background: 
+       linear-gradient(rgba(0, 62, 230, 0.6), 
+                      rgba(0, 62, 230, 0.6)
+          );
   border: 1px red solid;
-  background-color: blue;
 }
 
 .Trainingoverhid {
@@ -163,6 +203,28 @@
 .Adminpageshow{
 }
 
+.Trainsylhid {
+ display: none;
+}
+
+.Trainsylshow {
+}
+
+
+.Trainobjhid {
+ display: none;
+}
+
+.Trainobjshow {
+}
+
+
+.Labsylhid {
+ display: none;
+}
+
+.Labsylshow {
+}
 
 .Trainersyllabushid {
   display: none;
@@ -188,20 +250,6 @@
   border: 1px red solid;
 }
 
-
-.Topinsidebottomleftdiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 42vw;
-  height: 60vh;
-  background-color: #3366ff;
-  font-family: "Arial", Segoe UI;
-  border: 1px red solid;
-}
-
-
 .Companyuitextdiv {
   display: flex;
   flex-direction: column;
@@ -209,7 +257,6 @@
   align-items: center;
   width: 40vw;
   height: 38vh;
-  background-color: #3366ff;
   border: 1px red solid;
 }
 
@@ -220,7 +267,6 @@
   align-items: center;
   width: 38vw;
   height: 8vh;
-  background-color: #3366ff;
   text-align: justify;
   border: 1px red solid;
 }
@@ -285,48 +331,6 @@
   border: 1px red solid;
 }
 
-.Middledivhid {
- display: none;
-}
-
-.Middledivshow {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 88vw;
-  height: 8vh;
-  background-color: white;
-  font-family: "Arial", Segoe UI;
-  border: 1px red solid;
-}
-
-
-.Middleleftdiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 42vw;
-  height: 7vh;
-  background-color: white;
-  text-align: justify;
-  border: 1px red solid;
-}
-
-
-.Middlerightdiv {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 42vw;
-  height: 7vh;
-  background-color: white;
-  text-align: justify;
-  border: 1px red solid;
-}
-
 .Bottomdivhid {
  display: none;
 }
@@ -337,24 +341,24 @@
   justify-content: center;
   align-items: center;
   width: 88vw;
-  height: 20vh;
+  height: 30vh;
   background-color: white;
   font-family: "Arial", Segoe UI;
   border: 1px red solid;
 }
 
-.Backenddiv, .Frontenddiv, .Connectivitydiv {
+.Proftraindiv, .Workshopdiv, .Certificatediv {
  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   width: 29vw;
-  height: 18vh;
+  height: 28vh;
   background-color: white;
   border: 1px red solid;
  } 
 
-.Backendlogodiv, .Frontendlogodiv, .Connectivitylogodiv {
+.Proftrainlogodiv, .Workshoplogodiv, .Certificatelogodiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -365,7 +369,7 @@
   border: 1px red solid;
 }
 
-.Backendboxdiv, .Frontendboxdiv, .Connectivityboxdiv {
+.Proftrainboxdiv, .Workshopboxdiv, .Certificateboxdiv {
  display: flex;
   flex-direction: row;
   justify-content: center;
@@ -377,37 +381,59 @@
   border: 1px red solid;
 }
 
-.Backendtitletextdiv, .Frontendtitletextdiv, .Connectivitytitletextdiv {
+.Proftraintitlecontentdiv, .Workshoptitlecontentdiv, .Certificatetitlecontentdiv {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   width: 20vw;
+  height: 10vh;
+  background-color: white;
+  border: 1px red solid;
+}
+
+.Proftraintitletadiv, .Workshoptitletadiv, .Certificatetitletadiv {
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 18vw;
+  height: 10vh;
+  background-color: white;
+  border: 1px red solid;
+}
+
+.Proftrainta, .Workshopta, .Certificateta {
+ width: 17vw;
+ height: 9vh;
+ font-size: 1.1vw;
+ font-family: "Arial", Segoe UI;
+ border: none;
+ resize: none;
+ outline: none;
+ overflow-y: hidden;
+ text-align: center;
+}
+
+.Proftraincontenttadiv, .Workshopcontenttadiv, .Certificatecontenttadiv {
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 19vw;
   height: 17vh;
   background-color: white;
   border: 1px red solid;
 }
 
-.Backendtitlediv, .Frontendtitlediv, .Connectivitytitlediv {
- display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 18vw;
-  height: 5vh;
-  background-color: white;
-  border: 1px red solid;
+.Proftraincontentta, .Workshopcontentta, .Certificatecontentta {
+ width: 17vw;
+ height: 16vh;
+ font-size: 1.1vw;
+ font-family: "Arial", Segoe UI;
+ border: none;
+ resize: none;
+ outline: none;
+ overflow-y: hidden;
+ text-align: center;
 }
-
-.Backendtextdiv, .Frontendtextdiv, .Connectivitytextdiv {
- display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 18vw;
-  height: 11vh;
-  background-color: white;
-  border: 1px red solid;
-}
-
-

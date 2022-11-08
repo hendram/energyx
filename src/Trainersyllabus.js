@@ -11,6 +11,7 @@ traininginput: "Traininginputgrey"});
 
 const trainername = useRef(null);
 const invitecode = useRef(null);
+const classtitle = useRef(null);
 const trainobj = useRef(null);
 const trainper = useRef(null);
 const trainsyl = useRef(null);
@@ -45,8 +46,8 @@ const handleFocustrainper = (event) => {
 const handleResettrainsyl = (event) => {
    event.stopPropagation();
    event.preventDefault();
-
-  //  setTrainper("");
+   
+   classtitle.current.value = "";
    trainper.current.value = "";
    trainobj.current.value = "";
    trainsyl.current.value = "";
@@ -61,14 +62,15 @@ const handleSubmittrainsyl = async(event) => {
 
       let  trainernamenya = trainername.current;
       let  invitecodenya = invitecode.current;
+      let classtitlenya = classtitle.current.value;
       let trainobjnya = trainobj.current.value;
       let trainpernya = trainper.current.value;
       let trainsylnya = trainsyl.current.value;
       let labsylnya = labsyl.current.value;
 
 if(trainobjnya !== "" && trainpernya !== "" && trainsylnya !== "" && labsylnya !== ""){
- let fromtrainsyl = {"trainername": trainernamenya, "invitecode": invitecodenya, "trainobj": trainobjnya, 
-   "trainper": trainpernya, "trainsyl": trainsylnya, "labsyl": labsylnya } 
+ let fromtrainsyl = {"trainername": trainernamenya, "invitecode": invitecodenya, "classtitle": classtitlenya, 
+"trainobj": trainobjnya, "trainper": trainpernya, "trainsyl": trainsylnya, "labsyl": labsylnya } 
 
 console.log(fromtrainsyl);
 
@@ -101,6 +103,12 @@ return(
 </div>
 <div className="Invitecodetraindiv">
 <span className="Invitecodetrainspan">{invitecode.current}</span>
+</div>
+<div className="Classtitlediv">
+<span className="Classtitlespan" >Class title:</span>
+</div>
+<div className="Classtitleinputdiv">
+<input type="text" className="Classtitleinput"  ref={classtitle}/>
 </div>
 <div className="Trainingobjectivetextdiv">
 <span className="Trainingobjectspan" >Training Objective:</span>

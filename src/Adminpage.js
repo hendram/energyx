@@ -6,8 +6,8 @@ const Adminpage = () => {
 
 const [, updateState] = React.useState();
 const forceUpdate = React.useCallback(() => updateState({}), [])
-const alltrainval = useRef({trainername: [], trainobj: [], trainper: [], trainsyl: [], labsyl: [],
-topublish: [] });
+const alltrainval = useRef({trainername: [], classtitle: [], trainobj: [], trainper: [], trainsyl: [], 
+labsyl: [], topublish: [] });
 const [publishornot, setPublishornot] = useState([]);
 
 const resultrandomtrain = useRef(null);
@@ -53,6 +53,27 @@ const handleSubmittrainer = async(event) => {
 });
 } 
 
+const topublishadmin = async(id, decide) => {
+   
+  let trainerdata = {"trainername": alltrainval.current.trainer[id],
+ "classtitle": alltrainval.current.classtitle[id],
+ "trainobj": alltrainval.current.trainobj[id], "trainper": alltrainval.current.trainper[id],
+"trainsyl": alltrainval.current.trainsyl[id], "labsyl": alltrainval.current.labsyl[id],
+"topublish": decide }
+
+      console.log(trainerdata);
+
+   await fetch("https://localhost/trainer", {
+               method: "POST",
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(trainerdata)
+}).then((response) =>  response.json()
+       ).then(function(data){
+          console.log(data);
+
+});       
+}
+
 const handleClicktokencust = (event) => {
           forbuttonclick(event);
 
@@ -87,13 +108,15 @@ const allintrainer = (datanya) => {
         let newpublishornot = [];
       for(let k=0; k < datanya; k++){
           newpublishornot.push(<Publishnotpage id={k} trainername={alltrainval.current.trainername[k]}
-trainobj={alltrainval.current.trainobj[k]} trainper={alltrainval.current.trainper[k]}
+classtitle={alltrainval.current.classtitle[k]} trainobj={alltrainval.current.trainobj[k]} 
+trainper={alltrainval.current.trainper[k]}
 trainsyl={alltrainval.current.trainsyl[k]} labsyl={alltrainval.current.labsyl[k]} 
-topublish={alltrainval.current.topublish[k]} />);
+topublish={alltrainval.current.topublish[k]} topublishfrom={topublishadmin} />);
 }
 
 setPublishornot(newpublishornot);
 }
+
 
 const getalltrainerdata = async() => {
   let trainerdataall = {"alltrainerdata": "yes"}
@@ -105,20 +128,22 @@ const getalltrainerdata = async() => {
                body: JSON.stringify(trainerdataall)
 }).then((response) =>  response.json()
        ).then(function(data){
-       alltrainval.current = {trainername: [], trainobj: [], trainper: [], trainsyl: [], labsyl: [],
+       alltrainval.current = {trainername: [], classtitle: [], trainobj: [], trainper: [], trainsyl: [], 
+labsyl: [],
 topublish: [] };
 
           console.log(data);
          for(let x=0; x < data.answer.length; x++){
         alltrainval.current.trainername.push(data.answer[x].trainername);
-        alltrainval.current.trainobj.push(data.answer[x].trainobj);
-        alltrainval.current.trainper.push(data.answer[x].trainper);
-        alltrainval.current.trainsyl.push(data.answer[x].trainsyl);
-        alltrainval.current.labsyl.push(data.answer[x].labsyl);
+        alltrainval.current.classtitle.push(data.answer[x].classtitle);
+        alltrainval.current.trainobj.push(data.answer[x].trainingobjective);
+        alltrainval.current.trainper.push(data.answer[x].trainingperiod);
+        alltrainval.current.trainsyl.push(data.answer[x].trainingsyllabus);
+        alltrainval.current.labsyl.push(data.answer[x].labsyllabus);
         alltrainval.current.topublish.push(data.answer[x].topublish);
 }
    allintrainer(data.answer.length);
-
+     console.log(alltrainval.current.trainsyl[1]);
 });
 }
 

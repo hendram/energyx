@@ -1,0 +1,41 @@
+.Labsylmain {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  justify-content: flex-start;
+  align-items: center;
+  width: 88vw;
+  height: 93vh;
+  color: white;
+  font-family: "Arial", Segoe UI;
+  border: 1px red solid;
+}
+
+.Labsyltopdiv{
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 86vw;
+  height: 91vh;
+  color: white;
+  border: 1px red solid;
+}
+
+.Labsyltopdiv{
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 86vw;
+  height: 90vh;
+  color: white;
+  border: 1px red solid;
+}
+
+.Backbutton {
+ position: fixed;
+ top: 88vh;
+ right: 80vw;
+}
+ 

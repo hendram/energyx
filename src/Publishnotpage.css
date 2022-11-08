@@ -1,37 +1,78 @@
 .Outerpublishnotpage {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 88vw;
+  height: 10vh;
+  border: 1px red solid;
+}
+
+.Trainerpartdiv {
+  display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   width: 88vw;
   height: 5vh;
   border: 1px red solid;
 }
 
-.Trainernametextdiv {
+.Trainernamepublishtextdiv, .Classtitlepublishtextdiv {
    display: flex;
   flex-direction: row;
-  width: 10vw;
+  justify-content: flex-start;
+  align-items: center;
+  width: 15vw;
   height: 5vh;
   border: 1px red solid;
 }
 
-.Trainernamenyatextdiv {
+.Trainernamenyapublishtextdiv, .Classtitlenyapublishtextdiv {
    display: flex;
   flex-direction: row;
-  width: 10vw;
+  justify-content: flex-start;
+  align-items: center;
+  width: 70vw;
   height: 5vh;
   border: 1px red solid;
+}
+
+.Trainingpartdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2vw;
+  width: 88vw;
+  height: 5vh;
+  border: 1px red solid;
+}
+
+.Trainobjbut, .Trainsylbut, .Labsylbut, .Publishbut, .Notpublishbut {
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  border: 1px red solid;
+ font-size: 1.1vw;
+  font-family: "Arial", Segoe UI;
+  background-color: blue;
+  color: white;
+  border-radius: 1.5vh;
 }
 
 .Publishhid {
   display: none;
 }
 
-.Publishshow {
+.Publishshow{
 }
 
 .Notpublishhid {
   display: none;
 }
 
-.Notpublishshow {
+.Notpublishshow{
 }

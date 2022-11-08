@@ -1,5 +1,5 @@
-.Testiouterpage{
-  display: flex;
+.Classsampleouterpage {
+display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -10,8 +10,8 @@
   border: 1px red solid;
 }
 
-.Titletesti{
- display: flex;
+.Titleclasssample{
+display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -22,8 +22,8 @@
   border-top-right-radius: 2vh;
 }
 
-.Contenttesti{
- display: flex;
+.Contentclasssample {
+display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -32,43 +32,22 @@
   border: 1px black solid;
 }
 
-.Testimonialtextdiv {
- display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 39vw;
-  height: 29vh;
-  border: 1px red solid;
-}
 
-.Testimonialtextarea{
-  width: 38vw;
-  height: 28vh;
+.Contentclasstextarea {
+ width: 39vw;
+  height: 40vh;
  font-size: 1.2vw;
  font-family: "Arial", Segoe UI;
- color: white;
+ color: black;
  resize: none;
   border: none;
   outline: none;
   background-color: transparent;
+  border: 1px black solid;
 }
 
-.Nametexttestimonialdiv, .Positiontexttestimonialdiv, .Companytexttestimonialdiv{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  width: 38vw;
-  height: 4vh;
-  color: white;
-  font-size: 1.2vw;
-  font-family: "Arial", Segoe UI;
-  border: 1px red solid;
-}
-
-.Slidetesti{
- display: flex;
+.Slideclasssample {
+display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -79,3 +58,5 @@
   border-bottom-left-radius: 2vh;
   border-bottom-right-radius: 2vh;
 }
+
+

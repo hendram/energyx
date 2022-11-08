@@ -4,7 +4,8 @@ import Emitter from './Emitter';
 
 const Signinpage = (props) => {
 
-const [sign, setSign] = useState({signup: "Signup2buttonhid", invitationcode: "Invitationcodehid",
+const [sign, setSign] = useState({signuptop: 'Signuptopshow', signintop: 'Signintophid', 
+signup: "Signupbuttonhid", invitationcode: "Invitationcodehid",
 repeatpassword: "Repeatpasswordtextinputdivhid", signin: "Signinbuttonshow"});
 const email = useRef(null);
 const password = useRef(null);
@@ -121,7 +122,7 @@ else if(props.custortrain  === "customerclick"   ){
 }
 }
 
-const handleSignin = async(event) => {
+const handleSigninsubmit = async(event) => {
     event.stopPropagation();
     event.preventDefault();
    await sendSigninMess();    
@@ -138,13 +139,26 @@ const handleSignup = (event) => {
     event.stopPropagation();
     event.preventDefault();
 
-    if(sign.signin === 'Signinbuttonshow'){
-    let newsign = {signup: 'Signup2buttonshow', invitationcode: 'Invitationcodeshow',
+    if(sign.signuptop === 'Signuptopshow'){
+    let newsign = {signuptop: 'Signuptophid', signintop: 'Signintopshow', signup: 'Signupbuttonshow', 
+invitationcode: 'Invitationcodeshow',
 repeatpassword: "Repeatpasswordtextinputdivshow", signin: 'Signinbuttonhid'};
    setSign(newsign);
 }
 }
 
+
+const handleSignin = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+
+    if(sign.signintop === 'Signintopshow'){
+    let newsign = {signuptop: 'Signuptopshow', signintop: 'Signintophid', signup: 'Signupbuttonhid', 
+invitationcode: 'Invitationcodehid',
+repeatpassword: "Repeatpasswordtextinputdivhid", signin: 'Signinbuttonshow'};
+   setSign(newsign);
+}
+}
 
 return(
 <div className="Signpagediv">
@@ -153,8 +167,11 @@ return(
    <span className="Signuptextspan"> Not sign up yet ? </span>
    </div>
     <div className="Signup1buttondiv">
-   <button onClick={(e) => handleSignup(e)} className="Signup1button">
-<span className="Signup1textbuttonspan">Sign up</span>
+   <button onClick={(e) => handleSignup(e)} className={sign.signuptop}>
+Sign up
+</button>
+   <button onClick={(e) => handleSignin(e)} className={sign.signintop}>
+Sign in
 </button>
    </div>
 </div>  {/* closing for Topsidediv */}
@@ -193,7 +210,7 @@ return(
     </div> {/* closing for middlebottomdiv */}
 </div>
 <div className="Bottomsidediv">
-<button className={sign.signin} onClick={(e) => handleSignin(e)} >
+<button className={sign.signin} onClick={(e) => handleSigninsubmit(e)} >
 <span>Sign in</span>
 </button>
 <button className={sign.signup} onClick={(e) => handleSignupsubmit(e)} >

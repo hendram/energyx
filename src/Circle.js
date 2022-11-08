@@ -11,7 +11,7 @@ const handleClick = (event) => {
 
 return(
 <div>
-<svg xmlns="http://www.w3.org/2000/svg" width="4vw" height="4vh" fill={props.color}  viewBox="0 0 16 16"
+<svg xmlns="http://www.w3.org/2000/svg" width="4vw" height="4vh" fill={props.color}  viewBox="0 -10 34 34"
 onClick={(e) => handleClick(e)} >
   <circle cx="8" cy="8" r="8"/>
 </svg>

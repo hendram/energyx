@@ -1,15 +1,22 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, createContext} from 'react';
 import './EnergyxMain.css';
 import Chevrondown from './Chevrondown';
 import Energyxpng from './Energyx.png';
-import Front from './Front';
-import Back from './Back';
-import Connectivity from './Connectivity';
+import Workshop from './Workshop';
+import Trainingprof from './Trainingprof';
+import Certificate from './Certificate';
 import Signinpage from './Signinpage';
 import Testimonial from './Testimonial';
 import Adminpage from './Adminpage';
 import Testiinput from './Testiinput';
 import Trainersyllabus from './Trainersyllabus';
+import Classsample from './Classsample';
+import Trainsyl from './Trainsyl';
+import Labsyl from './Labsyl';
+
+export const MainContext1 = React.createContext(null);
+export const MainContext2 = React.createContext(null);
+export const MainContext3 = React.createContext(null);
 
 const EnergyxMain = () => {
     
@@ -18,19 +25,68 @@ const custtrain = useRef({vis: 'null'});
 const [bottomchoice, setBottomchoice] = useState({ testi: "Testishow", cust: "Customerhid", 
 train: "Trainhid" });
 const [admintopbottomdiv, setAdmintopbottomdiv] = useState({admin: "Adminpagehid", 
-topbottomdiv: "Topinsidebottomdivshow", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow", 
+bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
-trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
 labsyllabus: "Labsylhid", listedclass: "Listedclasshid"});
 
+const trainsylcon = useRef("");
+const labsylcon = useRef("");
+const fromwhere = useRef("");
+
+const backorigin = () => {
+    console.log(fromwhere.current);
+     if(fromwhere.current === "admin"){
+         openedadmin("true");
+}
+}
+
+const trainobjopen = (isiobjective) => {
+}
+
+const trainsylopen = (isitrainsyllabus, darimana) => {
+
+              trainsylcon.current = isitrainsyllabus;
+              console.log(trainsylcon.current);
+              fromwhere.current = darimana;
+
+       if(admintopbottomdiv.trainingsyllabus === "Trainsylhid"){
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+topdiv: "Topdivlarge", topinsidediv: "Topinsidedivlarge", topbottomdiv: "Topinsidebottomdivhid", 
+bottomdiv: "Bottomdivhid",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylshow", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
+          setAdmintopbottomdiv(newadmintopbottomdiv);
+}
+}
+
+const labsylopen = (isilabsyllabus, darimana) => {
+
+              labsylcon.current = isilabsyllabus;
+              console.log(labsylcon.current);
+              fromwhere.current = darimana;
+
+       if(admintopbottomdiv.labsyllabus === "Labsylhid"){
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+topdiv: "Topdivlarge", topinsidediv: "Topinsidedivlarge", topbottomdiv: "Topinsidebottomdivhid", 
+bottomdiv: "Bottomdivhid",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylshow", listedclass: "Listedclasshid" };
+          setAdmintopbottomdiv(newadmintopbottomdiv);
+}
+}
 
 const opentrainsyllabus = (truefalse) => {
     if(truefalse === "true"){
         if(admintopbottomdiv.trainersyllabus === "Trainersyllabushid"){
           let newadmintopbottomdiv = {admin: "Adminpagehid", 
-topbottomdiv: "Topinsidebottomdivhid", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivhid",
+bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabusshow",
-trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
 labsyllabus: "Labsylhid", listedclass: "Listedclasshid" }
           setAdmintopbottomdiv(newadmintopbottomdiv);
 }
@@ -41,22 +97,28 @@ const opentestiin = (truefalse) => {
     if(truefalse === "true"){
         if(admintopbottomdiv.testiinput === "Testiinputhid"){
           let newadmintopbottomdiv =  {admin: "Adminpagehid", 
-topbottomdiv: "Topinsidebottomdivhid", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivhid", 
+bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputshow", trainersyllabus: "Trainersyllabusshow",
-trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
 labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
           setAdmintopbottomdiv(newadmintopbottomdiv);
 }
 }
 }
 
+const a: AppContext1 = {trainobjopen};
+const b: AppContext1 = {trainsylopen};
+const c: AppContext1 = {labsylopen};
+
 const backfromtesti = (truefalse) => {
    if(truefalse === "true"){
  if(admintopbottomdiv.topbottomdiv === "Topinsidebottomdivhid"){
           let newadmintopbottomdiv =  {admin: "Adminpagehid", 
-topbottomdiv: "Topinsidebottomdivshow", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow", 
+bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
-trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
 labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
           setAdmintopbottomdiv(newadmintopbottomdiv);
 }
@@ -68,9 +130,10 @@ const backoutfromtrain = (truefalse) => {
    if(truefalse === "true"){
  if(admintopbottomdiv.topbottomdiv === "Topinsidebottomdivhid"){
           let newadmintopbottomdiv =  {admin: "Adminpagehid", 
-topbottomdiv: "Topinsidebottomdivshow", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow", 
+bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
-trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
 labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
           setAdmintopbottomdiv(newadmintopbottomdiv);
 }
@@ -81,9 +144,10 @@ const openedadmin = (truefalse) => {
     if(truefalse === "true"){
         if(admintopbottomdiv.admin === "Adminpagehid"){
           let newadmintopbottomdiv =  {admin: "Adminpageshow", 
-topbottomdiv: "Topinsidebottomdivhid", middlediv: "Middledivdiv", bottomdiv: "Bottomdivhid",
+topdiv: "Topdivlarge", topinsidediv: "Topinsidedivlarge", topbottomdiv: "Topinsidebottomdivhid", 
+bottomdiv: "Bottomdivhid",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
-trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
 labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
           setAdmintopbottomdiv(newadmintopbottomdiv);
 }
@@ -147,9 +211,10 @@ const handleTrainerregister = (event) => {
 train: "Trainshow" };
         custtrain.current.vis = "trainerclick";
     let newadmintopbottomdiv =  {admin: "Adminpagehid", 
-topbottomdiv: "Topinsidebottomdivshow", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow", 
+bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
-trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
 labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
 
          setBottomchoice(newbottomchoice);
@@ -166,9 +231,10 @@ const handleCustomerpage = (event) => {
            let newbottomchoice = { testi: "Testihid", cust: "Customershow", 
 train: "Trainhid" };
     let newadmintopbottomdiv =  {admin: "Adminpagehid", 
-topbottomdiv: "Topinsidebottomdivshow", middlediv: "Middledivshow", bottomdiv: "Bottomdivshow",
+topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow", 
+bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
-trainingobjective: "Trainobjhid", trainingperiod: "Trainperhid", trainingsyllabus: "Trainsylhid", 
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
 labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
 
         custtrain.current.vis = "customerclick";
@@ -181,8 +247,8 @@ labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
 
 return(
 <div className="Mostouterdiv">
-<div className="Topdiv">
-<div className="Topinsidediv">
+<div className={admintopbottomdiv.topdiv}>
+<div className={admintopbottomdiv.topinsidediv}>
 <div className="Topinsidetopdiv">
 <div className="Topinsidetopleftdiv">
 <img src={Energyxpng} className="Imagelogo" width="100%" height="100%"></img>
@@ -212,28 +278,30 @@ return(
 </div> {/* closing for topinsidetoprightdiv */}
 </div>  {/* closing for topinsidetopdiv */}
 <div className={admintopbottomdiv.admin} >
+<MainContext1.Provider value={a}>
+<MainContext2.Provider value={b}>
+<MainContext3.Provider value={c}>
 <Adminpage />
+</MainContext3.Provider>
+</MainContext2.Provider>
+</MainContext1.Provider>
 </div>
 <div className={admintopbottomdiv.trainersyllabus} >
 <Trainersyllabus backoutfromtrainsyl={backoutfromtrain}/>
+</div>
+<div className={admintopbottomdiv.trainingsyllabus} >
+<Trainsyl trainsylcontent={trainsylcon.current} backtoorigin={backorigin}/>
+</div>
+<div className={admintopbottomdiv.labsyllabus} >
+<Labsyl labsylcontent={labsylcon.current} backtoorigin={backorigin} />
 </div>
 <div className={admintopbottomdiv.testiinput} >
 <Testiinput backoutfromtesti={backfromtesti} />
 </div>
 <div className={admintopbottomdiv.topbottomdiv}>
-<div className="Topinsidebottomleftdiv">
-<div className="Companyuitextdiv">
-<div className="Companyuifirsttextdiv">
-<span> We help your company to build 
-   your brand through UI </span>
-</div>
-<div className="Companyuisecondtextdiv">
-<span> Good signature UI will impress 
- your clients, partner, and employee 
- and makes them remember it's your brand </span>
-</div>
+<div className="Classexamplediv">
+<Classsample />
 </div>  {/* closing for companyuitextdiv */}
-</div> {/* closing for topinsidebottomleftdiv */}
 <div className={bottomchoice.testi} >
 <Testimonial /> 
 </div>
@@ -246,63 +314,55 @@ return(
 </div> {/* closing for admintopbottomdiv.topbottomdiv */}
 </div> {/* closing for topinsidediv */}
 </div> {/* closing for Topdiv */}
-<div className={admintopbottomdiv.middlediv}>
-<div className="Middleleftdiv">
-<span> Flexible & Viewable Web UI Template </span>
-</div>
-<div className="Middlerightdiv">
-<span> Direct view your Web UI template before last touch will 
- makes your Web apps get lasting impression. </span> 
-</div>
-</div> {/* closing for middlediv */}
 <div className={admintopbottomdiv.bottomdiv}>
-<div className="Backenddiv">
-<div className="Backendlogodiv">
-<div className="Backendboxdiv">
-<Back />
+<div className="Proftraindiv">
+<div className="Proftrainlogodiv">
+<div className="Proftrainboxdiv">
+<Trainingprof />
 </div>
-</div> {/* closing for backendlogodiv */}
-<div className="Backendtitletextdiv">
-<div className="Backendtitlediv">
-<span>Backend</span>
+</div> {/* closing for Proftrainlogodiv */}
+<div className="Proftraintitlecontentdiv">
+<div className="Proftraintitletadiv">
+<textarea readOnly className="Proftrainta" value="Professional Training"/>
 </div>
-<div className="Backendtextdiv">
-<span>We help build your backend better, connecting to any kind of databases, IOT based system, 
-or Web3 dapps</span>
+<div className="Proftraincontenttadiv">
+<textarea readOnly className="Proftraincontentta" value="We provide professional IT training to your 
+company greatest asset. Help Your company growing your assets through education."/>
 </div>
-</div> {/* closing for backendtitletextdiv */}
-</div> {/* closing for backenddiv */}
-<div className="Frontenddiv">
-<div className="Frontendlogodiv">
-<div className="Frontendboxdiv">
-<Front />
+</div> {/* closing for Proftraintitletextdiv */}
+</div> {/* closing for Proftraindiv */}
+<div className="Workshopdiv">
+<div className="Workshoplogodiv">
+<div className="Workshopboxdiv">
+<Workshop />
 </div>
-</div>  {/* closing for frontendlogodiv */}
-<div className="Frontendtitletextdiv">
-<div className="Frontendtitlediv">
-<span> Frontend</span>
+</div>  {/* closing for Workshoplogodiv */}
+<div className="Workshoptitlecontentdiv">
+<div className="Workshoptitletadiv">
+<textarea readOnly className="Workshopta" value="Workshop" />
 </div>
-<div className="Frontendtextdiv">
-<span> We design and implemented any kind of frontend your apps required, uniquely and secure </span>
+<div className="Workshopcontenttadiv">
+<textarea readOnly className="Workshopcontentta" value="Our training class always provide workshop for 
+all IT based training. Makes our professional student ready to do professional jobs instantly."/> 
 </div>
-</div> {/* closing for frontendtitletextdiv */}
-</div> {/* closing for frontenddiv */}
-<div className="Connectivitydiv">
-<div className="Connectivitylogodiv">
-<div className="Connectivityboxdiv">
-<Connectivity />
+</div> {/* closing for Workshoptitletextdiv */}
+</div> {/* closing for Workshopdiv */}
+<div className="Certificatediv">
+<div className="Certificatelogodiv">
+<div className="Certificateboxdiv">
+<Certificate />
 </div>
-</div> {/* closing for connectivitylogdiv */}
-<div className="Connectivitytitletextdiv">
-<div className="Connectivitytitlediv">
-<span> Connectivity </span>
+</div> {/* closing for Certificatelogdiv */}
+<div className="Certificatetitlecontentdiv">
+<div className="Certificatetitletadiv">
+<textarea readOnly className="Certificateta" value="Certificate"/>
 </div>
-<div className="Connectivitytextdiv">
-<span> We connecting your frontend to your backend using any kind of technology, some of 
-them are rest api, websocket, soap </span>
+<div className="Certificatecontenttadiv">
+<textarea readOnly className="Certificatecontentta" value="We provide certification for our graduate student.
+Proving they have pass the exam and workshop and understand what the syllabus they have been taken." /> 
 </div>
-</div> {/* closing for connectivitytitletextdiv */}
-</div>  {/* closing for connectivitydiv */}
+</div> {/* closing for certificatetitletextdiv */}
+</div>  {/* closing for certificatediv */}
 </div> {/* closing for bottomdiv */}
 </div>
 );

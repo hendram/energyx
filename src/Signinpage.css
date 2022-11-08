@@ -33,15 +33,29 @@
   color: black;
 }
 
-.Signup1button {
-  background-color: transparent;
-  border: none;
+.Signuptophid {
+ display: none;
 }
 
-.Signup1textbuttonspan {
-  font-size: 1vw;
-  font-family: "Arial", Segoe UI;
+.Signuptopshow {
+  background-color: transparent;
+  border: none;
   color: blue;
+  font-size: 1.1vw;
+  font-family: "Arial", Segoe UI;
+}
+
+
+.Signintophid {
+ display: none;
+}
+
+.Signintopshow {
+  background-color: transparent;
+  border: none;
+  color: blue;
+  font-size: 1.1vw;
+  font-family: "Arial", Segoe UI;
 }
 
 .Middlesidediv{
@@ -117,11 +131,11 @@
  height: 5vh;
 }
 
-.Signup2buttonhid {
+.Signupbuttonhid {
   display: none;
 }
 
-.Signup2buttonshow {
+.Signupbuttonshow {
  display: flex;
  flex-direction: row;
  justify-content: center;
