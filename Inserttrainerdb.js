@@ -7,8 +7,7 @@ async function inserttrainerdb(invite, trainname) {
 try{
     await client.connect();
        const dbo = client.db("trainer");
-      const traintablename = {invitecode: invite, trainername: trainname, email:"", password:"",
-trainingobjective:"", trainingperiod:"", trainingsyllabus:"", labsyllabus:"", topublish: ""};
+      const traintablename = {invitecode: invite, trainername: trainname, email:"", password:"" };
       const instraintable = await dbo.collection("trainertable").insertOne(traintablename);
                 if(instraintable === null) {
              console.log("failed to insert train");

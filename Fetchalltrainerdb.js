@@ -8,9 +8,9 @@ async function fetchalltrainerdb() {
 try {
     await client.connect()
     const database = client.db('trainer');
-    const traintablename = database.collection('trainertable');
+    const traintablename = database.collection('trainertabledata');
 
-    const exists = await traintablename.find().project({trainername: 1, trainingobjective: 1, 
+    const exists = await traintablename.find().project({trainername: 1, classtitle: 1, trainingobjective: 1, 
 trainingperiod: 1, trainingsyllabus: 1, labsyllabus: 1, topublish: 1}).toArray();
    if(exists !== null){
      return exists;

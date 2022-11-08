@@ -15,9 +15,12 @@ const Checktrainersignupdb = require('./Checktrainersignupdb');
 const Checkcustomersignindb = require('./Checkcustomersignindb');
 const Checktrainersignindb = require('./Checktrainersignindb');
 const Checktrainertrainsyldb = require('./Checktrainertrainsyldb');
+const Checktrainertrainsyldbsec = require('./Checktrainertrainsyldbsec');
+const Checktrainertrainpubdb = require('./Checktrainertrainpubdb');
 const Updatecustomersignupdb = require('./Updatecustomersignupdb');
 const Updatecustomertestidb = require('./Updatecustomertestidb');
-const Updatetrainertrainsyldb = require('./Updatetrainertrainsyldb');
+const Inserttrainertrainsyldb = require('./Inserttrainertrainsyldb');
+const Updatetrainertrainpubdb = require('./Updatetrainertrainpubdb');
 const Updatetrainersignupdb = require('./Updatetrainersignupdb');
 const Fetchrandomtestidb = require('./Fetchrandomtestidb');
 const Fetchalltrainerdb = require('./Fetchalltrainerdb');
@@ -170,15 +173,40 @@ req.body.password);
 }
 
 
-else if(req.body.trainername && req.body.invitecode && req.body.trainobj && req.body.trainper &&
-    req.body.trainsyl && req.body.labsyl) {
+else if(req.body.trainername && req.body.invitecode && req.body.classtitle && req.body.trainobj && 
+req.body.trainper && req.body.trainsyl && req.body.labsyl) {
       console.log(req.body.trainername);
   let resultchecktrainthree = await Checktrainertrainsyldb.checktrainertrainsyldb(req.body.trainername,
 req.body.invitecode);
-   if(resultchecktrainthree.email && resultchecktrainthree.password){
-    let resultinstrainthree = await Updatetrainertrainsyldb.updatetrainertrainsyldb(req.body.invitecode,
-req.body.trainername, resultchecktrainthree.email, resultchecktrainthree.password, req.body.trainobj, 
-req.body.trainper, req.body.trainsyl, req.body.labsyl, "no");
+   if(resultchecktrainthree.trainername && resultchecktrainthree.invitecode){
+  let resultchecktrainthree = await Checktrainertrainsyldbsec.checktrainertrainsyldbsec(req.body.trainername,
+          req.body.invitecode, req.body.classtitle, req.body.trainobj,  
+req.body.trainper, req.body.trainsyl, req.body.labsyl);
+    if(resultchecktrainthree === "goahead"){
+    let resultinstrainthree = await Inserttrainertrainsyldb.inserttrainertrainsyldb(
+req.body.trainername, req.body.invitecode, req.body.classtitle,
+req.body.trainobj, req.body.trainper, req.body.trainsyl, req.body.labsyl, "no");
+    if(resultinstrainthree === "1inserted"){
+         res.send({result: "success"}); 
+       console.log("1updated");
+}         
+}
+    else if(resultchecktrainthree === "find"){
+     console.log("trainer trying to input exactly same document");
+}
+} // closing for resultchecktrainthree first variable
+} // closing for else if
+
+// this part happen when admin click publish or notpublish button
+else if(req.body.trainername && req.body.classtitle && req.body.trainobj && req.body.trainper &&
+    req.body.trainsyl && req.body.labsyl && req.body.topublish) {
+      console.log(req.body.trainername);
+  let resultchecktrainthree = await Checktrainertrainpubdb.checktrainertrainpubdb(req.body.trainername,
+req.body.classtitle, req.body.trainobj, req.body.trainper, req.body.trainsyl, req.body.labsyl);
+   if(resultchecktrainthree.trainername && resultchecktrainthree.invitecode){
+    let resultinstrainthree = await Updatetrainertrainpubdb.updatetrainertrainpubdb(
+req.body.trainername, req.body.invitecode, req.body.classtitle, 
+req.body.trainobj, req.body.trainper, req.body.trainsyl, req.body.labsyl, req.body.topublish);
     if(resultinstrainthree === "1updated"){
          res.send({result: "success"}); 
        console.log("1updated");
