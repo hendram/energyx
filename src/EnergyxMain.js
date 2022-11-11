@@ -11,8 +11,10 @@ import Adminpage from './Adminpage';
 import Testiinput from './Testiinput';
 import Trainersyllabus from './Trainersyllabus';
 import Classsample from './Classsample';
+import Trainobj from './Trainobj';
 import Trainsyl from './Trainsyl';
 import Labsyl from './Labsyl';
+import Listedclass from './Listedclass';
 
 export const MainContext1 = React.createContext(null);
 export const MainContext2 = React.createContext(null);
@@ -31,6 +33,7 @@ testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
 trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
 labsyllabus: "Labsylhid", listedclass: "Listedclasshid"});
 
+const trainobjcon = useRef("");
 const trainsylcon = useRef("");
 const labsylcon = useRef("");
 const fromwhere = useRef("");
@@ -40,10 +43,36 @@ const backorigin = () => {
      if(fromwhere.current === "admin"){
          openedadmin("true");
 }
+    else if(fromwhere.current === "listedclass"){
+      if(admintopbottomdiv.listedclass === "Listedclasshid"){
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+topdiv: "Topdivlarge", topinsidediv: "Topinsidedivlarge", topbottomdiv: "Topinsidebottomdivhid", 
+bottomdiv: "Bottomdivhid",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclassshow" };
+          setAdmintopbottomdiv(newadmintopbottomdiv);
+}
+}
 }
 
-const trainobjopen = (isiobjective) => {
+const trainobjopen = (isitrainobjective, darimana) => {
+
+              trainobjcon.current = isitrainobjective;
+              console.log(trainobjcon.current);
+              fromwhere.current = darimana;
+
+       if(admintopbottomdiv.trainingobjective === "Trainobjhid"){
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivhid", 
+bottomdiv: "Bottomdivshow",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjshow", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
+          setAdmintopbottomdiv(newadmintopbottomdiv);
 }
+}
+
 
 const trainsylopen = (isitrainsyllabus, darimana) => {
 
@@ -99,7 +128,7 @@ const opentestiin = (truefalse) => {
           let newadmintopbottomdiv =  {admin: "Adminpagehid", 
 topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivhid", 
 bottomdiv: "Bottomdivshow",
-testiinput: "Testiinputshow", trainersyllabus: "Trainersyllabusshow",
+testiinput: "Testiinputshow", trainersyllabus: "Trainersyllabushid",
 trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
 labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
           setAdmintopbottomdiv(newadmintopbottomdiv);
@@ -185,6 +214,28 @@ const handleDivovertr = (event) => {
  }
 
  
+const backtoFrontpage = (event) => {
+     event.stopPropagation();
+      event.preventDefault();
+
+        if(admintopbottomdiv.topbottomdiv === "Topinsidebottomdivhid"){
+          let newadmintopbottomdiv = {admin: "Adminpagehid", 
+topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow",
+bottomdiv: "Bottomdivshow",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid" }
+          setAdmintopbottomdiv(newadmintopbottomdiv);
+}
+
+
+      if(bottomchoice.testi === "Testihid"){
+           let newbottomchoice = { testi: "Testishow", cust: "Customerhid", 
+train: "Trainhid" };
+         setBottomchoice(newbottomchoice);
+}
+}
+
 const handleDivleavetr = (event) => {
      event.stopPropagation();
       event.preventDefault();
@@ -199,7 +250,15 @@ const handleListedclass = (event) => {
      event.stopPropagation();
       event.preventDefault();
 
-        
+       if(admintopbottomdiv.listedclass === "Listedclasshid"){
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+topdiv: "Topdivlarge", topinsidediv: "Topinsidedivlarge", topbottomdiv: "Topinsidebottomdivhid", 
+bottomdiv: "Bottomdivhid",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclassshow" };
+          setAdmintopbottomdiv(newadmintopbottomdiv);
+}       
 }
 
 const handleTrainerregister = (event) => {
@@ -254,7 +313,7 @@ return(
 <img src={Energyxpng} className="Imagelogo" width="100%" height="100%"></img>
 </div> {/* closing for topinsidetopleftdiv */}
 <div className="Topinsidetoprightdiv">
-<button className="Corporatebutton">
+<button className="Corporatebutton" onClick={(e) => backtoFrontpage(e)} >
 <span>Corporate</span>
 </button>
 <div className="Trainingmenubuttondiv">
@@ -286,8 +345,20 @@ return(
 </MainContext2.Provider>
 </MainContext1.Provider>
 </div>
+<div className={admintopbottomdiv.listedclass} >
+<MainContext1.Provider value={a}>
+<MainContext2.Provider value={b}>
+<MainContext3.Provider value={c}>
+<Listedclass />
+</MainContext3.Provider>
+</MainContext2.Provider>
+</MainContext1.Provider>
+</div>
 <div className={admintopbottomdiv.trainersyllabus} >
 <Trainersyllabus backoutfromtrainsyl={backoutfromtrain}/>
+</div>
+<div className={admintopbottomdiv.trainingobjective} >
+<Trainobj trainobjcontent={trainobjcon.current} backtoorigin={backorigin}/>
 </div>
 <div className={admintopbottomdiv.trainingsyllabus} >
 <Trainsyl trainsylcontent={trainsylcon.current} backtoorigin={backorigin}/>
@@ -326,8 +397,7 @@ return(
 <textarea readOnly className="Proftrainta" value="Professional Training"/>
 </div>
 <div className="Proftraincontenttadiv">
-<textarea readOnly className="Proftraincontentta" value="We provide professional IT training to your 
-company greatest asset. Help Your company growing your assets through education."/>
+<textarea readOnly className="Proftraincontentta" value="We provide professional IT training to your company greatest asset. Help Your company growing your assets through education."/>
 </div>
 </div> {/* closing for Proftraintitletextdiv */}
 </div> {/* closing for Proftraindiv */}
@@ -342,8 +412,7 @@ company greatest asset. Help Your company growing your assets through education.
 <textarea readOnly className="Workshopta" value="Workshop" />
 </div>
 <div className="Workshopcontenttadiv">
-<textarea readOnly className="Workshopcontentta" value="Our training class always provide workshop for 
-all IT based training. Makes our professional student ready to do professional jobs instantly."/> 
+<textarea readOnly className="Workshopcontentta" value="Our training class always provide workshop for all IT based training. Makes our professional student ready to do professional jobs instantly."/> 
 </div>
 </div> {/* closing for Workshoptitletextdiv */}
 </div> {/* closing for Workshopdiv */}
@@ -358,8 +427,7 @@ all IT based training. Makes our professional student ready to do professional j
 <textarea readOnly className="Certificateta" value="Certificate"/>
 </div>
 <div className="Certificatecontenttadiv">
-<textarea readOnly className="Certificatecontentta" value="We provide certification for our graduate student.
-Proving they have pass the exam and workshop and understand what the syllabus they have been taken." /> 
+<textarea readOnly className="Certificatecontentta" value="We provide certification for our graduate student. Proving they have pass the exam and workshop and understand what the syllabus they have been taken." /> 
 </div>
 </div> {/* closing for certificatetitletextdiv */}
 </div>  {/* closing for certificatediv */}

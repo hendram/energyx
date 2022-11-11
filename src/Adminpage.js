@@ -55,7 +55,7 @@ const handleSubmittrainer = async(event) => {
 
 const topublishadmin = async(id, decide) => {
    
-  let trainerdata = {"trainername": alltrainval.current.trainer[id],
+  let trainerdata = {"trainername": alltrainval.current.trainername[id],
  "classtitle": alltrainval.current.classtitle[id],
  "trainobj": alltrainval.current.trainobj[id], "trainper": alltrainval.current.trainper[id],
 "trainsyl": alltrainval.current.trainsyl[id], "labsyl": alltrainval.current.labsyl[id],
@@ -69,6 +69,14 @@ const topublishadmin = async(id, decide) => {
                body: JSON.stringify(trainerdata)
 }).then((response) =>  response.json()
        ).then(function(data){
+           if(data.answer === "success" && decide === "no"){
+                  alltrainval.current.topublish.splice(id, 1, "no");
+                  allintrainer(alltrainval.current.topublish.length);
+               }
+         else if(data.answer === "success" && decide === "yes"){
+                  alltrainval.current.topublish.splice(id, 1, "yes");
+                  allintrainer(alltrainval.current.topublish.length);
+               }
           console.log(data);
 
 });       
@@ -106,6 +114,7 @@ const handleSubmitcustomer = async(event) => {
 
 const allintrainer = (datanya) => {
         let newpublishornot = [];
+        console.log("inside allintrainer");
       for(let k=0; k < datanya; k++){
           newpublishornot.push(<Publishnotpage id={k} trainername={alltrainval.current.trainername[k]}
 classtitle={alltrainval.current.classtitle[k]} trainobj={alltrainval.current.trainobj[k]} 
@@ -157,35 +166,46 @@ return(
 <div className="Adminpagemain">
 <div className="Invitetrainer">
 <div className="Generatetokentraindiv">
-<button onClick={(e) => handleClicktokentrain(e)} ><span> Generate Token</span></button>
+<button onClick={(e) => handleClicktokentrain(e)} className="Generatetoktrainbut">Generate Token</button>
 <span>{resultrandomtrain.current}</span>
 </div>
-<div className="Trainernamediv">
-<span>Trainer Name:</span>
-<input type="text" size={10} ref={trainname} />
+<div className="Trainernameadmdiv">
+<div className="Trainernameadmtext">Trainer Name:</div>
+<div className="Trainernameadminputdiv">
+<input type="text" ref={trainname} className="Trainernameinput" />
+</div>
 </div>
 <div className="Submittrainbuttondiv">
-<button onClick={(e) => handleSubmittrainer(e)} >Submit</button>
+<button onClick={(e) => handleSubmittrainer(e)} className="Submittrainbut">Submit</button>
 <span>{successprinttrain.current}</span>
 </div>
 </div> {/* closing for invitetrainer */}
 <div className="Invitecustomer">
 <div className="Generatetokencustdiv">
-<button onClick={(e) => handleClicktokencust(e)} ><span> Generate Token</span></button>
+<button onClick={(e) => handleClicktokencust(e)} className="Generatetokcustbut"> Generate Token</button>
 <span>{resultrandomcust.current}</span>
 </div>
 <div className="Customercompdiv">
-<span>Company Name:</span>
-<input type="text" size={10} ref={compname} />
+<div className="Customercomptext">Company Name:</div>
+<div className="Companynameinputdiv">
+<input type="text" ref={compname} className="Companynameinput"/>
+</div>
 </div>
 <div className="Submitcustbuttondiv">
-<button onClick={(e) => handleSubmitcustomer(e)} >Submit</button>
+<button onClick={(e) => handleSubmitcustomer(e)} className="Submitcustbut">Submit</button>
 <span>{successprintcust.current}</span>
 </div>
 </div>  {/* closing for InviteCustomer */}
-<div>
+<div className="Publishdiv">
+<div className="Publishpartdiv">
+<div className="Publishtitletextdiv">
+Trainer Listing Publish
+</div>
+</div> {/* closing for publishpartdiv */}
+<div className="Publishornotencapdiv" >
 {publishornot}
 </div>
+</div>  {/* closing for publishdiv */}
 </div>
 );
 }

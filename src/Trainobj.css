@@ -1,41 +1,36 @@
-.Trainsylmain {
+.Trainobjmain {
   display: flex;
   flex-direction: column;
   gap: 1vh;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 88vw;
-  height: 93vh;
+  height: 57vh;
   color: white;
   font-family: "Arial", Segoe UI;
-  border: 1px red solid;
 }
 
-.Trainsyltopdiv{
+.Trainobjtopdiv{
  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 86vw;
-  height: 91vh;
-  color: white;
-  border: 1px red solid;
+  width: 87vw;
+  height: 56vh;
+  background-color: white;
+  border-radius: 1vh;
 }
 
-.Trainsyltopdiv{
- display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 86vw;
-  height: 90vh;
-  color: white;
-  border: 1px red solid;
-}
-
-.Backbutton {
+.Backbuttontrainobj {
  position: fixed;
- top: 88vh;
- right: 80vw;
+ top: 59vh;
+ left: 85vw;
+ background-color: blue;
+ border-radius: 1.5vh;
+ color: white;
+ font-size: 1.1vw;
+ font-family: "Arial", Segoe UI;
+ width: 5vw;
+ height: 4vh;
 }
-
+ 

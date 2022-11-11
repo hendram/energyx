@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './Trainersyllabus.css';
 import Emitter from './Emitter';
+import BundledEditor from './BundledEditor';
 
 const Trainersyllabus = (props) => {
 
@@ -49,9 +50,9 @@ const handleResettrainsyl = (event) => {
    
    classtitle.current.value = "";
    trainper.current.value = "";
-   trainobj.current.value = "";
-   trainsyl.current.value = "";
-   labsyl.current.value = "";
+   trainobj.current.setContent("");
+   trainsyl.current.setContent("");
+   labsyl.current.setContent("");
    forceUpdate();
 
 }
@@ -63,10 +64,10 @@ const handleSubmittrainsyl = async(event) => {
       let  trainernamenya = trainername.current;
       let  invitecodenya = invitecode.current;
       let classtitlenya = classtitle.current.value;
-      let trainobjnya = trainobj.current.value;
+      let trainobjnya = trainobj.current.getContent();
       let trainpernya = trainper.current.value;
-      let trainsylnya = trainsyl.current.value;
-      let labsylnya = labsyl.current.value;
+      let trainsylnya = trainsyl.current.getContent();
+      let labsylnya = labsyl.current.getContent();
 
 if(trainobjnya !== "" && trainpernya !== "" && trainsylnya !== "" && labsylnya !== ""){
  let fromtrainsyl = {"trainername": trainernamenya, "invitecode": invitecodenya, "classtitle": classtitlenya, 
@@ -113,9 +114,21 @@ return(
 <div className="Trainingobjectivetextdiv">
 <span className="Trainingobjectspan" >Training Objective:</span>
 </div>
-<div className="Trainingobjectiveinputdiv">
-<textarea type="text" className="Trainingobjectiveinputta"  ref={trainobj} />
-</div>
+<BundledEditor 
+        onInit={(evt, editor) => trainobj.current = editor}
+        init={{
+          branding: false,
+          statusbar: false,
+          width: "40vw",
+          height: "11vh",
+          menubar: false,
+          toolbar: "" ,
+plugins: "paste",
+    paste_as_text: true
+
+        }}
+      />  
+
 <div className="Trainingperiodtextdiv">
 <span className="Trainingperiodspan" >Training Period:</span>
 </div>
@@ -127,15 +140,37 @@ return(
 <div className="Trainingsyllabustextdiv">
 <span className="Trainingsyllabusspan" >Training Syllabus:</span>
 </div>
-<div className="Trainingsyllabusinputdiv">
-<textarea type="text" className="Trainingsyllabusinputta"  ref={trainsyl}/>
-</div>
+<BundledEditor 
+        onInit={(evt, editor) => trainsyl.current = editor}
+        init={{
+          branding: false,
+          statusbar: false,
+          width: "40vw",
+          height: "22vh",
+          menubar: false,
+          toolbar: "" ,
+plugins: "paste",
+    paste_as_text: true
+        }}
+      />  
+
 <div className="Labsyllabustextdiv">
 <span className="Labsyllabusspan" >Lab Syllabus:</span>
 </div>
-<div className="Labsyllabusinputdiv">
-<textarea type="text" className="Labsyllabusinputta"  ref={labsyl}/>
-</div>
+<BundledEditor 
+        onInit={(evt, editor) => labsyl.current = editor}
+        init={{
+          branding: false,
+          statusbar: false,
+          width: "40vw",
+          height: "18vh",
+          menubar: false,
+          toolbar: "" ,
+     plugins: "paste",
+    paste_as_text: true
+        }}
+      />  
+
 <div className="Resetsubmitbuttontraindiv">
 <button className="Resetbutton" onClick={(e) => handleResettrainsyl(e)} >Reset</button>
 <button className="Submitbutton" onClick={(e) => handleSubmittrainsyl(e)} >Submit</button>

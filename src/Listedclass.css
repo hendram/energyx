@@ -1,0 +1,28 @@
+.Listedclassmain {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  justify-content: flex-start;
+  align-items: center;
+  width: 88vw;
+  height: 93vh;
+  color: white;
+  font-family: "Arial", Segoe UI;
+}
+
+.Listedclassdiv {
+  display:flex;
+  flex-direction: column;
+  width: 86vw;
+  height: 92vh;
+} 
+
+.Listedclasscontentdiv{
+ display:flex;
+  flex-direction: column;
+  width: 86vw;
+  height: 92vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+

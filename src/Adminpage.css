@@ -8,7 +8,6 @@
   height: 93vh;
   color: white;
   font-family: "Arial", Segoe UI;
-  border: 1px red solid;
 }
 
 .Invitetrainer{
@@ -19,7 +18,6 @@
   width: 86vw;
   height: 7vh;
   color: white;
-  border: 1px red solid;
 }
 
 .Invitecustomer{
@@ -30,7 +28,6 @@
   width: 86vw;
   height: 7vh;
   color: white;
-  border: 1px red solid;
 }
 
 .Generatetokentraindiv, .Generatetokencustdiv{
@@ -38,32 +35,107 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  gap: 1.5vw;
   width: 18vw;
   height: 5vh;
   color: white;
-  border: 1px red solid;
 }
 
-.Customercompdiv, .Trainernamediv{
+.Trainernameadmtext, .Customercomptext {
+  font-size: 1.1vw;
+  font-family: "Arial", Segoe UI;
+  color: white;
+}
+
+.Trainernameadminputdiv, .Companynameinputdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+   width: 41vw;
+ height: 4vh;
+ border-radius: 1vh;
+ margin-left: auto;
+ margin-right: 1px;
+}
+
+.Generatetoktrainbut, .Submittrainbut, .Generatetokcustbut, .Submitcustbut {
+  font-size: 1.1vw;
+  font-family: "Arial", Segoe UI;
+  color: white;
+  border-radius: 1vh;
+  background-color: blue;
+}
+
+.Customercompdiv{
  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: 50vw;
+  width: 55vw;
   height: 5vh;
   color: white;
-  border: 1px red solid;
+  white-space: nowrap;
 }
 
+.Trainernameadmdiv {
+ display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 55vw;
+  height: 5vh;
+  color: white;
+  white-space: nowrap;
+}
 
 .Submittrainbuttondiv, .Submitcustbuttondiv{
  display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  gap: 1.5vw;
   width: 13vw;
   height: 5vh;
   color: white;
-  border: 1px red solid;
+}
+
+.Publishdiv {
+  display:flex;
+  flex-direction: column;
+  width: 86vw;
+  height: 75vh;
+} 
+
+.Publishpartdiv {
+  display: flex;
+  flex-direction: row;
+  width: 86vw;
+  height: 8vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.Publishtitletextdiv {
+   width: fit-content;
+   height: fit-content;
+}
+
+.Trainernameinput, .Companynameinput {
+ width: 40vw;
+ height: 3vh;
+border: none;
+ outline: none;
+}
+
+.Publishornotencapdiv{
+ display:flex;
+  flex-direction: column;
+  width: 86vw;
+  height: 66.5vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 1.5vh;
 }
 

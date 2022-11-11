@@ -24,7 +24,6 @@ url("./classroom.jpg");
  height: 70vh;
  border-top-left-radius: 2vh;
  border-top-right-radius: 2vh;
- border: 1px red solid;
 }
 
 .Topdivlarge {
@@ -42,9 +41,7 @@ url("./classroom.jpg");
  url("./classroom.jpg");
  background-size: cover;
 
- border-top-left-radius: 2vh;
- border-top-right-radius: 2vh;
-  border: 1px red solid;
+ border-radius: 2vh;
 }
 
 .Topinsidedivsmall {
@@ -54,7 +51,6 @@ url("./classroom.jpg");
   align-items: center;
   width: 90vw;
   height: 68vh;
-  border: 1px red solid;
 }
 
 
@@ -65,7 +61,6 @@ url("./classroom.jpg");
   align-items: center;
   width: 90vw;
   height: 98vh;
-  border: 1px red solid;
 }
 
 .Topinsidetopdiv {
@@ -75,7 +70,6 @@ url("./classroom.jpg");
   align-items: center;
   width: 88vw;
   height: 5vh; 
-  border: 1px red solid;
 }
 
 .Topinsidetopleftdiv {
@@ -85,7 +79,6 @@ url("./classroom.jpg");
   align-items: center;
   width: 15vw;
   height: 5vh;
-  border: 1px red solid;
   background-color: white;
   border-radius: 2.5vh;
 }
@@ -100,7 +93,6 @@ url("./classroom.jpg");
   margin-right: 0vw;
   width: 45vw;
   height: 5vh;
-  border: 1px red solid;
 }
 
 .Corporatebutton {
@@ -114,13 +106,11 @@ url("./classroom.jpg");
   color: white;
   border: none;
   font-family: "Arial", Segoe UI;
-  border: 1px red solid;
 }
 
 .Trainingmenubuttondiv{
   display: block;
   height: fit-content;
-  border: 5px black solid;
 }
 
 .Trainingbutton {
@@ -134,7 +124,6 @@ url("./classroom.jpg");
   border: none;
   color: white;
   font-family: "Arial", Segoe UI;
-  border: 1px red solid;
 }
 
 .Trainingovershow {
@@ -150,7 +139,6 @@ url("./classroom.jpg");
        linear-gradient(rgba(0, 62, 230, 0.6), 
                       rgba(0, 62, 230, 0.6)
           );
-  border: 1px red solid;
 }
 
 .Trainingoverhid {
@@ -203,6 +191,13 @@ url("./classroom.jpg");
 .Adminpageshow{
 }
 
+.Listedclasshid {
+  display: none;
+}
+
+.Listedclassshow{
+}
+
 .Trainsylhid {
  display: none;
 }
@@ -247,7 +242,6 @@ url("./classroom.jpg");
   height: 62vh;
   color: white;
   font-family: "Arial", Segoe UI;
-  border: 1px red solid;
 }
 
 .Companyuitextdiv {
@@ -257,7 +251,6 @@ url("./classroom.jpg");
   align-items: center;
   width: 40vw;
   height: 38vh;
-  border: 1px red solid;
 }
 
 .Companyuifirsttextdiv {
@@ -268,7 +261,6 @@ url("./classroom.jpg");
   width: 38vw;
   height: 8vh;
   text-align: justify;
-  border: 1px red solid;
 }
 
 
@@ -281,7 +273,6 @@ url("./classroom.jpg");
   height: 20vh;
   background-color: #3366ff;
   text-align: justify;
-  border: 1px red solid;
 }
 
 .Testiinputhid {
@@ -311,7 +302,6 @@ url("./classroom.jpg");
   height: 60vh;
   color: white;
   font-family: "Arial", Segoe UI;
-  border: 1px red solid;
 }
 
 
@@ -328,7 +318,6 @@ url("./classroom.jpg");
   height: 60vh;
   color: white;
   font-family: "Arial", Segoe UI;
-  border: 1px red solid;
 }
 
 .Bottomdivhid {
@@ -344,7 +333,6 @@ url("./classroom.jpg");
   height: 30vh;
   background-color: white;
   font-family: "Arial", Segoe UI;
-  border: 1px red solid;
 }
 
 .Proftraindiv, .Workshopdiv, .Certificatediv {
@@ -355,7 +343,6 @@ url("./classroom.jpg");
   width: 29vw;
   height: 28vh;
   background-color: white;
-  border: 1px red solid;
  } 
 
 .Proftrainlogodiv, .Workshoplogodiv, .Certificatelogodiv {
@@ -366,7 +353,6 @@ url("./classroom.jpg");
   width: 8vw;
   height: 10vh;
   background-color: white;
-  border: 1px red solid;
 }
 
 .Proftrainboxdiv, .Workshopboxdiv, .Certificateboxdiv {
@@ -378,7 +364,6 @@ url("./classroom.jpg");
   height: 8vh;
   background-color: #3366ff;
   border-radius: 2vh;
-  border: 1px red solid;
 }
 
 .Proftraintitlecontentdiv, .Workshoptitlecontentdiv, .Certificatetitlecontentdiv {
@@ -389,7 +374,6 @@ url("./classroom.jpg");
   width: 20vw;
   height: 10vh;
   background-color: white;
-  border: 1px red solid;
 }
 
 .Proftraintitletadiv, .Workshoptitletadiv, .Certificatetitletadiv {
@@ -400,7 +384,6 @@ url("./classroom.jpg");
   width: 18vw;
   height: 10vh;
   background-color: white;
-  border: 1px red solid;
 }
 
 .Proftrainta, .Workshopta, .Certificateta {
@@ -413,6 +396,7 @@ url("./classroom.jpg");
  outline: none;
  overflow-y: hidden;
  text-align: center;
+ line-height: 8vh;
 }
 
 .Proftraincontenttadiv, .Workshopcontenttadiv, .Certificatecontenttadiv {
@@ -423,7 +407,6 @@ url("./classroom.jpg");
   width: 19vw;
   height: 17vh;
   background-color: white;
-  border: 1px red solid;
 }
 
 .Proftraincontentta, .Workshopcontentta, .Certificatecontentta {
@@ -435,5 +418,6 @@ url("./classroom.jpg");
  resize: none;
  outline: none;
  overflow-y: hidden;
- text-align: center;
+ text-align: justify;
+ line-height: 4vh;
 }

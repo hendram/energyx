@@ -7,7 +7,6 @@
   height: 58vh;
   color: white;
   font-family: "Arial", Segoe UI;
-  border: 1px red solid;
 }
 
 .Leftsidediv, .Rightsidediv {
@@ -18,11 +17,6 @@
   width: 42vw;
   height: 56vh;
   color: white;
-  border: 1px red solid;
-}
-
-.Rightsidediv {
- gap: 1vh;
 }
 
 .Companynametextdiv, .Invitationcodetextdiv, .Nametextdiv, .Positiontextdiv, .Trainingtextdiv {
@@ -33,7 +27,6 @@
   width: 40vw;
   height: 5vh;
   color: white;
-  border: 1px red solid;
 }  
 
 .Companynamespan, .Invitationcodespan, .Namespan, .Positionspan, .Trainingspan {
@@ -42,7 +35,7 @@
  font-weight: bold;
 }
 
-.Testimonispan {
+.Testimonispan, .Suggestionspan {
  font-size: 1.1vw;
  font-family: "Arial", Segoe UI;
  font-weight: bold;
@@ -61,7 +54,6 @@
   width: 40vw;
   height: 5vh;
   color: white;
-  border: 1px red solid;
 }
 
 .Nameinputdiv, .Positioninputdiv, .Traininginputdiv {
@@ -98,7 +90,7 @@
   color: black;
 }
 
-.Testimonitextdiv {
+.Testimonitextdiv, .Suggestiontextdiv {
  display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -106,33 +98,7 @@
   width: 40vw;
   height: 5vh;
   color: white;
-  border: 1px red solid;
 }  
-
-.Testimoniinputdiv {
- display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 39vw;
-  height: 29vh;
-  color: white;
-  border: 1px black solid;
-  border-radius: 1vh;
-  background-color: white;
-}
-
-.Textareainput {
-  width: 38vw;
-  height: 28vh;
-  font-size: 1.1vw;
-  font-family: "Arial", Segoe UI;
-  color: black;
- overflow: hidden;
-   resize: none; 
-   border: none;
-   outline: none;
-}
 
 .Resetsubmitbuttondiv {
  display: flex;
@@ -143,7 +109,6 @@
   width: 40vw;
   height: 5vh;
   color: white;
-  border: 1px red solid;
 }
 
 

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import './Testiinput.css';
 import Emitter from './Emitter';
+import BundledEditor from './BundledEditor';
 
 const Testiinput = (props) => {
 
@@ -10,6 +11,7 @@ traininginput: "Traininginputgrey"});
 const customername = useRef(null);
 const customerinvite = useRef(null);
 const testimoniin = useRef(null);
+const suggestionin = useRef(null);
 
 const [trainingst, setTrainingst] = useState("Please input your taken training class here");
 const [positionst, setPositionst] = useState("Please input your position in your company here");
@@ -97,7 +99,8 @@ const handleResetbutton  = (event) => {
      setPositionst("");
      setNamest("");
      setTrainingst("");
-     testimoniin.current.value = "";       
+     testimoniin.current.setContent("");
+     suggestionin.current.setContent("");       
 
     forceUpdate();
         }
@@ -109,12 +112,15 @@ const handleSubmitbutton  = async(event) => {
 
          let companynamenya = customername.current;
          let invitecodenya = customerinvite.current;
-         let testimoninya = testimoniin.current.value;
+         let testimoninya = testimoniin.current.getContent();
+         let suggestionnya = suggestionin.current.getContent();
+
      console.log(testimoninya);
 
        if(testimoninya !== "" && positionst !== "" && namest !== "" && trainingst !== ""){         
          let datafromtestimoni = { "companyname": companynamenya, "invitecode": invitecodenya, 
-"position": positionst, "name": namest, "training": trainingst, "testimoni": testimoninya }
+"position": positionst, "name": namest, "training": trainingst, "testimoni": testimoninya, 
+"suggestion": suggestionnya }
 
 console.log(datafromtestimoni);
 
@@ -178,9 +184,35 @@ onFocus={(e) => handleFocustraining(e)} onChange={(e) => handleChangetraining(e)
 <div className="Testimonitextdiv">
 <span className="Testimonispan">Testimoni:</span>
 </div>
-<div className="Testimoniinputdiv">
-<textarea type="text" className="Textareainput" ref={testimoniin}/>
+<BundledEditor 
+        onInit={(evt, editor) => testimoniin.current = editor}
+        init={{
+          branding: false,
+          statusbar: false,
+          width: "40vw",
+          height: "28vh",
+          menubar: false,
+          toolbar: "" ,
+       plugins: "paste",
+    paste_as_text: true
+        }}
+      />  
+<div className="Suggestiontextdiv">
+<span className="Suggestionspan">Your suggestion:</span>
 </div>
+<BundledEditor 
+        onInit={(evt, editor) => suggestionin.current = editor}
+        init={{
+          branding: false,
+          statusbar: false,
+          width: "40vw",
+          height: "10vh",
+          menubar: false,
+          toolbar: "" ,
+plugins: "paste",
+    paste_as_text: true
+        }}
+      />  
 <div className="Resetsubmitbuttondiv">
 <button className="Resettestibutton" onClick={(e) => handleResetbutton(e)}>Reset</button>
 <button className="Submittestibutton" onClick={(e) => handleSubmitbutton(e)} >Submit</button>

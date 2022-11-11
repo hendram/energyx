@@ -1,4 +1,4 @@
-.Outerpublishnotpage {
+.Listedclasscontentpage {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -7,8 +7,8 @@
   height: 17vh;
 }
 
-.Trainernamepublishtextdiv, .Trainernamenyapublishtextdiv, 
-.Classtitlenyapublishtextdiv {
+.Listedclasstitlenyapublishtextdiv, .Listedtrainernamepublishtextdiv, 
+.Listednamenyapublishtextdiv {
   width: fit-content;
   height: fit-content;
   font-size: 1.1vw;
@@ -16,7 +16,7 @@
   color: black;  
 }
 
-.Trainernamerowdiv, .Classtitlerowdiv {
+.Listedclasstitlerowdiv, .Listedtrainernamerowdiv {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -28,7 +28,7 @@
   border: 1px black solid;
 }
 
-.Trainingpartdiv {
+.Listedtrainingpartdiv {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -39,7 +39,7 @@
   border-radius: 1.5vh;
 }
 
-.Trainobjbut, .Trainsylbut, .Labsylbut, .Publishbut, .Nopublishbut {
+.Listedtrainobjbut, .Listedtrainsylbut, .Listedlabsylbut {
  display: flex;
   flex-direction: row;
   justify-content: center;
@@ -52,7 +52,7 @@
   border-radius: 1.5vh;
 }
 
-.Trainperdiv {
+.Listedtrainperdiv {
  display:flex;
  flex-direction: row;
  justify-content: center;
@@ -64,7 +64,7 @@
  border: 1px black solid;
 }
 
-.Trainbutdiv {
+.Listedtrainbutdiv {
  display:flex;
  flex-direction: row;
  justify-content: center;
@@ -79,24 +79,10 @@
  border: 1px black solid;
 }
 
-.Trainpertext, .Trainperprops {
+.Listedtrainpertext, .Listedtrainperprops {
  width: fit-content;
   height: fit-content;
   font-size: 1.1vw;
   font-family: "Arial", Segoe UI;
   color: black;  
 } 
-
-.Publishhid {
-  display: none;
-}
-
-.Publishshow{
-}
-
-.Notpublishhid {
-  display: none;
-}
-
-.Notpublishshow{
-}

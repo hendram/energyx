@@ -3,12 +3,13 @@ import './Testimonial.css';
 import Triangleleft from './Triangleleft';
 import Triangleright from './Triangleright';
 import Circle from './Circle';
+import BundledEditor from './BundledEditor';
 
 const Testimonial = (props)  => {
 
 const allval = useRef({train:[], testi:[], name:[], position:[], companyname:[]});
 const train = useRef("");
-const testi = useRef("");
+const editorRef = useRef(null);
 const name = useRef("");
 const position = useRef("");
 const companyname = useRef("");
@@ -20,7 +21,8 @@ const [circlegroup, setCirclegroup] = useState([]);
 
 function goin(x){
           train.current = allval.current.train[x];
-          testi.current = allval.current.testi[x];
+           editorRef.current.setContent(allval.current.testi[x]);
+           editorRef.current.mode.set('readonly');
           name.current = allval.current.name[x];
           position.current = allval.current.position[x];
           companyname.current = allval.current.companyname[x];
@@ -128,7 +130,16 @@ return(
 </div>
 <div className="Contenttesti">
 <div className="Testimonialtextdiv">
-<textarea readOnly className="Testimonialtextarea" value={testi.current}  /> 
+ <BundledEditor 
+        onInit={(evt, editor) => editorRef.current = editor}
+        init={{
+          inline: true,
+          branding: false,
+          statusbar: false,
+          menubar: false,
+          toolbar: "" ,
+        }}
+      />  
 </div>
 <div className="Nametexttestimonialdiv">
 <span>{name.current} </span>

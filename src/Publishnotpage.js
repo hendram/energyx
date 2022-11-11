@@ -58,23 +58,25 @@ const handleNopublishclick = (event) => {
 
 return(
 <div className="Outerpublishnotpage">
-<div className="Trainerpartdiv">
-<div className="Classtitlepublishtextdiv">
-Class Title:
-</div>
+<div className="Classtitlerowdiv">
 <div className="Classtitlenyapublishtextdiv">
 {props.classtitle}
 </div>
+</div> {/* closing for classtitlerowdiv */}
+<div className="Trainernamerowdiv">
 <div className="Trainernamepublishtextdiv">
 Trainer Name: 
 </div>
 <div className="Trainernamenyapublishtextdiv">
 {props.trainername}
 </div>
-</div> {/* closing for trainerpartdiv */}
+</div> {/* closing for trainernamerowdiv */}
 <div className="Trainingpartdiv">
-<span>Training Period</span>
-<span>{props.trainper}</span>
+<div className="Trainperdiv">
+<div className="Trainpertext">Training Period:</div>
+<div className="Trainperprops">{props.trainper}</div>
+</div>
+<div className="Trainbutdiv">
 <button className="Trainobjbut" onClick={(e) => handleTrainobjclick(e)} >Training Objective</button>
 <button className="Trainsylbut"  onClick={(e) => handleTrainsylclick(e)} >Training Syllabus</button>
 <button className="Labsylbut"  onClick={(e) => handleLabsylclick(e)} >Lab Syllabus</button>
@@ -84,6 +86,7 @@ Trainer Name:
 <div className={porn.current.nopublish}>
 <button className="Nopublishbut"  onClick={(e) => handleNopublishclick(e)} >No Publish</button>
 </div>
+</div> {/* closing for trainbutdiv */}
 </div> {/* closing for trainingpartdiv */}
 </div>
 );
