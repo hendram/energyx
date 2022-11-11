@@ -13,7 +13,7 @@ try {
     const query = {trainername: trainernamenya, invitecode: invitecodenya, 
 classtitle: classtitlenya, trainingobjective: trainingobjectivenya, 
 trainingperiod: trainingperiodnya,
-trainingsyllabus: trainingsyllabusnya, labsyllabus: labsyllabusnya};
+trainingsyllabus: trainingsyllabusnya, labsyllabus: labsyllabusnya };
     const updated = {$set: { trainername: trainernamenya, invitecode: invitecodenya,  
 classtitle: classtitlenya, trainingobjective: trainingobjectivenya, 
 trainingperiod: trainingperiodnya, 

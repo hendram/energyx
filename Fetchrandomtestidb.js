@@ -8,7 +8,7 @@ async function fetchrandomtestidb() {
 try {
     await client.connect()
     const database = client.db('customer');
-    const custtablename = database.collection('customertable');
+    const custtablename = database.collection('customertabledata');
     // Query for a movie that has the title 'Back to the Future'
 
     const exists = await custtablename.find().project({training: 1, testimoni: 1, name: 1, position: 1,

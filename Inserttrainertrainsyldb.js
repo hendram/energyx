@@ -10,7 +10,6 @@ try {
     const database = client.db('trainer');
     const traintabledata = database.collection('trainertabledata');
     // Query for a movie that has the title 'Back to the Future'
-    const query = { trainername: trainernamenya, invitecode: invitecodenya};
     const inserted = {trainername: trainernamenya,   invitecode: invitecodenya, 
  classtitle: classtitlenya, trainingobjective: trainingobjectivenya, 
 trainingperiod: trainingperiodnya, trainingsyllabus: trainingsyllabusnya, 

@@ -7,8 +7,7 @@ async function insertcustomerdb(invite, compname) {
 try{
     await client.connect();
        const dbo = client.db("customer");
-      const custtablename = {invitecode: invite, companyname: compname, email: "", password: "", name: "",
-  position: "", training: "", testimoni: ""};
+      const custtablename = {invitecode: invite, companyname: compname, email: ""};
       const inscusttable = await dbo.collection("customertable").insertOne(custtablename);
                 if(inscusttable === null) {
              return "failed to insert cust";

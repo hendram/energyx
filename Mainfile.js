@@ -11,6 +11,7 @@ const Checktrainerdb = require('./Checktrainerdb');
 const Inserttrainerdb = require('./Inserttrainerdb');
 const Checkcustomersignupdb = require('./Checkcustomersignupdb');
 const Checkcustomertestidb = require('./Checkcustomertestidb');
+const Checkcustomertestidbsec = require('./Checkcustomertestidbsec');
 const Checktrainersignupdb = require('./Checktrainersignupdb');
 const Checkcustomersignindb = require('./Checkcustomersignindb');
 const Checktrainersignindb = require('./Checktrainersignindb');
@@ -18,13 +19,16 @@ const Checktrainertrainsyldb = require('./Checktrainertrainsyldb');
 const Checktrainertrainsyldbsec = require('./Checktrainertrainsyldbsec');
 const Checktrainertrainpubdb = require('./Checktrainertrainpubdb');
 const Updatecustomersignupdb = require('./Updatecustomersignupdb');
-const Updatecustomertestidb = require('./Updatecustomertestidb');
+const Insertcustomertestidb = require('./Insertcustomertestidb');
 const Inserttrainertrainsyldb = require('./Inserttrainertrainsyldb');
 const Updatetrainertrainpubdb = require('./Updatetrainertrainpubdb');
 const Updatetrainersignupdb = require('./Updatetrainersignupdb');
 const Fetchrandomtestidb = require('./Fetchrandomtestidb');
 const Fetchalltrainerdb = require('./Fetchalltrainerdb');
-
+const Fetchalltrainerpublishdb = require('./Fetchalltrainerpublishdb');
+const Fetchallclasssample = require('./Fetchallclasssample');
+const Inserttestsample = require('./Inserttestsample');
+const Fetchtestsample = require('./Fetchtestsample');
 
 let adminpass = "no";
 let newresult = [];
@@ -36,7 +40,31 @@ app.use(bodyParser.json());
 
 app.use('/customer', async function(req, res) {
 
-if(req.body.fortestimoni){
+if(req.body.fetchtestsample === "yes") {
+    console.log('already in');
+   let resultnya = await Fetchtestsample.fetchtestsample();
+     if(resultnya){
+      console.log(resultnya[0].testsample);
+         res.send({answer: resultnya});
+}
+}
+
+else if(req.body.isinya && req.body.testinsertsample) {
+ let  resultnya = await Inserttestsample.inserttestsample(req.body.isinya);
+   if(resultnya === "1inserted"){
+     console.log("1inserted");
+}
+}
+
+
+else if(req.body.forclasssample){
+    let resultclasssample = await Fetchallclasssample.fetchallclasssample();
+     if(resultclasssample.classname && resultclasssample.contentclass){
+       res.send({classname: resultclasssample.classname, contentclass: resultclasssample.contentclass});
+       }
+}
+
+else if(req.body.fortestimoni){
     let resultfetch = await Fetchrandomtestidb.fetchrandomtestidb();
    if(resultfetch.length < 5){
           newresult = [...resultfetch];
@@ -95,26 +123,46 @@ req.body.password);
 }     
 }
 
+// customertestidb looks like trainersyldb and this part begin to insert into customertabledata
 else if(req.body.companyname && req.body.invitecode && req.body.position && req.body.name &&
-    req.body.training && req.body.testimoni) {
+    req.body.training && req.body.testimoni && req.body.suggestion) {
       console.log(req.body.name);
   let resultcheckcustthree = await Checkcustomertestidb.checkcustomertestidb(req.body.companyname,
 req.body.invitecode);
-   if(resultcheckcustthree.email && resultcheckcustthree.password){
-    let resultinscustthree = await Updatecustomertestidb.updatecustomertestidb(req.body.invitecode, 
-req.body.companyname, resultcheckcustthree.email, resultcheckcustthree.password, req.body.name, 
-req.body.position, req.body.training, req.body.testimoni);
+   if(resultcheckcustthree.invitecode && resultcheckcustthree.companyname){
+        let resultcheckcustthree = await Checkcustomertestidbsec.checkcustomertestidbsec(req.body.companyname,
+ req.body.invitecode,  req.body.position,  req.body.name,  
+    req.body.training,  req.body.testimoni, req.body.suggestion);       
+    if(resultcheckcustthree === "goahead"){
+    let resultinscustthree = await Insertcustomertestidb.insertcustomertestidb(req.body.invitecode, 
+req.body.companyname, req.body.name, 
+req.body.position, req.body.training, req.body.testimoni, req.body.suggestion);
     if(resultinscustthree === "1updated"){
          res.send({result: "success"}); 
        console.log("1updated");
 }         
+} // closing for resultcheckcustthree goahead
+    else if(resultchecktrainthree === "find"){
+     console.log("trainer trying to input exactly same document");
 }
 }
+} // closing for elseif
 });
 
 app.use('/trainer', async function(req, res) {
   console.log(req.body);
-if(req.body.alltrainerdata){
+
+if(req.body.alltrainerdata && req.body.untukpublish){
+  let resultchecktrain =  await Fetchalltrainerpublishdb.fetchalltrainerpublishdb();
+  if(resultchecktrain){
+     res.send({answer: resultchecktrain});
+}
+  else {
+    console.log("no trainerdata yet");
+    }
+}
+
+else if(req.body.alltrainerdata){
   let resultchecktrain =  await Fetchalltrainerdb.fetchalltrainerdb();
   if(resultchecktrain){
      res.send({answer: resultchecktrain});
@@ -172,7 +220,7 @@ req.body.password);
 }     
 }
 
-
+// this part begin insert into trainertabledata
 else if(req.body.trainername && req.body.invitecode && req.body.classtitle && req.body.trainobj && 
 req.body.trainper && req.body.trainsyl && req.body.labsyl) {
       console.log(req.body.trainername);
@@ -205,10 +253,10 @@ else if(req.body.trainername && req.body.classtitle && req.body.trainobj && req.
 req.body.classtitle, req.body.trainobj, req.body.trainper, req.body.trainsyl, req.body.labsyl);
    if(resultchecktrainthree.trainername && resultchecktrainthree.invitecode){
     let resultinstrainthree = await Updatetrainertrainpubdb.updatetrainertrainpubdb(
-req.body.trainername, req.body.invitecode, req.body.classtitle, 
+req.body.trainername, resultchecktrainthree.invitecode, req.body.classtitle, 
 req.body.trainobj, req.body.trainper, req.body.trainsyl, req.body.labsyl, req.body.topublish);
     if(resultinstrainthree === "1updated"){
-         res.send({result: "success"}); 
+         res.send({answer: "success"}); 
        console.log("1updated");
 }         
 }
