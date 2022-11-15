@@ -1,0 +1,17 @@
+.Classsampleouter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
+  width: 50vw;
+  height: 15vh;
+}
+
+.Judulclass, .Whenclass {
+  font-size: 1.25vw;
+  font-family: "Arial", Segoe UI;
+  font-weight: bold;
+}
+
+

@@ -194,8 +194,29 @@ onFocus={(e) => handleFocustraining(e)} onChange={(e) => handleChangetraining(e)
           menubar: false,
           toolbar: "" ,
        plugins: "paste",
-    paste_as_text: true
-        }}
+    paste_as_text: true,
+   setup: (editor) => {
+    editor.on('keydown', function(e) {
+             let tinymax, tinylen;
+             tinymax = 600;
+             tinylen = testimoniin.current.getContent().length;
+             if(tinylen > tinymax) {
+              e.preventDefault();
+              e.stopPropagation();
+               return false;
+    }
+           else {
+             let lines = testimoniin.current.getContent().split(/\r|\r\n|\n/);
+             let count = lines.length;
+                if(count > 5){
+              e.preventDefault();
+              e.stopPropagation();
+               return false;
+    }
+}
+     });
+  }
+}} 
       />  
 <div className="Suggestiontextdiv">
 <span className="Suggestionspan">Your suggestion:</span>

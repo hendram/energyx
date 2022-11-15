@@ -121,7 +121,6 @@ else {
 useEffect(() => {
 testifunc(0, "notleft");
 }, []);
-console.log(circlegroup.length);
 
 return(
 <div className="Testiouterpage">

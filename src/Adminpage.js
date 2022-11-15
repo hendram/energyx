@@ -1,5 +1,6 @@
 import React, {useRef, useEffect, useState} from 'react';
 import Publishnotpage from './Publishnotpage';
+import Conformnotconform from './Conformnotconform';
 import './Adminpage.css';
 
 const Adminpage = () => {
@@ -9,6 +10,9 @@ const forceUpdate = React.useCallback(() => updateState({}), [])
 const alltrainval = useRef({trainername: [], classtitle: [], trainobj: [], trainper: [], trainsyl: [], 
 labsyl: [], topublish: [] });
 const [publishornot, setPublishornot] = useState([]);
+const alltrainvalcon = useRef({trainername: [], classtitle: [], trainobj: [], trainper: [], jumlah: [], trainsyl: [], 
+labsyl: [], conform: [] });
+const [conformornot, setConformornot] = useState([]);
 
 const resultrandomtrain = useRef(null);
 const trainname = useRef(null);
@@ -82,6 +86,40 @@ const topublishadmin = async(id, decide) => {
 });       
 }
 
+
+const toconformadmin = async(id, decide, when, jumlah) => {
+
+               alltrainvalcon.current.trainper.splice(id, 1, when);
+               alltrainvalcon.current.jumlah.splice(id, 1, jumlah);
+
+  let trainerdataconform = {"fromtrainerlist": "yes", "trainername": alltrainvalcon.current.trainername[id],
+ "classtitle": alltrainvalcon.current.classtitle[id],
+ "trainobj": alltrainvalcon.current.trainobj[id], "trainper": alltrainvalcon.current.trainper[id],
+"jumlah": alltrainvalcon.current.jumlah[id],
+"trainsyl": alltrainvalcon.current.trainsyl[id], "labsyl": alltrainvalcon.current.labsyl[id],
+"conform": decide }
+
+      console.log(trainerdataconform);
+
+   await fetch("https://localhost/trainer", {
+               method: "POST",
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(trainerdataconform)
+}).then((response) =>  response.json()
+       ).then(function(data){
+           if(data.answer === "success" && decide === "no"){
+                  alltrainvalcon.current.conform.splice(id, 1, "no");
+                  allintrainerconform(alltrainvalcon.current.conform.length);
+               }
+         else if(data.answer === "success" && decide === "yes"){
+                  alltrainvalcon.current.conform.splice(id, 1, "yes");
+                  allintrainerconform(alltrainvalcon.current.conform.length);
+               }
+          console.log(data);
+
+});       
+}
+
 const handleClicktokencust = (event) => {
           forbuttonclick(event);
 
@@ -123,7 +161,24 @@ trainsyl={alltrainval.current.trainsyl[k]} labsyl={alltrainval.current.labsyl[k]
 topublish={alltrainval.current.topublish[k]} topublishfrom={topublishadmin} />);
 }
 
-setPublishornot(newpublishornot);
+setPublishornot(newpublishornot) &&
+   getalltrainerdataconform();
+
+}
+
+
+const allintrainerconform = (datanya) => {
+        let newconformornot = [];
+        console.log("inside allintrainer");
+      for(let k=0; k < datanya; k++){
+          newconformornot.push(<Conformnotconform id={k} trainername={alltrainvalcon.current.trainername[k]}
+classtitle={alltrainvalcon.current.classtitle[k]} trainobj={alltrainvalcon.current.trainobj[k]} 
+trainper={alltrainvalcon.current.trainper[k]} jumlah={alltrainvalcon.current.jumlah[k]}
+trainsyl={alltrainvalcon.current.trainsyl[k]} labsyl={alltrainvalcon.current.labsyl[k]} 
+conform={alltrainvalcon.current.conform[k]} toconformfrom={toconformadmin} />);
+}
+
+setConformornot(newconformornot) && getalltrainerdataconform();
 }
 
 
@@ -157,9 +212,41 @@ topublish: [] };
 }
 
 
+const getalltrainerdataconform = async() => {
+  let trainerdataall = {"alltrainerdata": "yes", "untukadmin": "yes"}
+      console.log(trainerdataall);
+
+   await fetch("https://localhost/trainer", {
+               method: "POST",
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(trainerdataall)
+}).then((response) =>  response.json()
+       ).then(function(data){
+       alltrainvalcon.current = {trainername: [], classtitle: [], trainobj: [], trainper: [], jumlah: [], trainsyl: [], 
+labsyl: [],
+conform: [] };
+
+          console.log(data);
+         for(let x=0; x < data.answer.length; x++){
+        alltrainvalcon.current.trainername.push(data.answer[x].trainername);
+        alltrainvalcon.current.classtitle.push(data.answer[x].classtitle);
+        alltrainvalcon.current.trainobj.push(data.answer[x].trainingobjective);
+        alltrainvalcon.current.trainper.push(data.answer[x].trainingperiod);
+        alltrainvalcon.current.jumlah.push(data.answer[x].jumlah);
+        alltrainvalcon.current.trainsyl.push(data.answer[x].trainingsyllabus);
+        alltrainvalcon.current.labsyl.push(data.answer[x].labsyllabus);
+        alltrainvalcon.current.conform.push(data.answer[x].conform);
+}
+   allintrainerconform(data.answer.length);
+     console.log(alltrainval.current.trainsyl[1]);
+});
+}
+
+
 
 useEffect(() => {
    getalltrainerdata();
+   getalltrainerdataconform();
 },[]);
 
 return(
@@ -206,6 +293,16 @@ Trainer Listing Publish
 {publishornot}
 </div>
 </div>  {/* closing for publishdiv */}
+<div className="Conformdiv">
+<div className="Conformpartdiv">
+<div className="Conformtitletextdiv">
+Trainer Listing Conform
+</div>
+</div> {/* closing for Conformpartdiv */}
+<div className="Conformornotencapdiv" >
+{conformornot}
+</div>
+</div>  {/* closing for Conformdiv */}
 </div>
 );
 }

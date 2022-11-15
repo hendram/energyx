@@ -1,0 +1,32 @@
+.Outercontactpage {
+ display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 88vw;
+  height: 58vh;
+  color: white;
+  font-family: "Arial", Segoe UI;
+}
+
+.Leftsidecontactdiv, .Rightsidecontactdiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 42vw;
+  height: 56vh;
+  color: white;
+}
+
+.Line1add, .Line2add, .Line3add {
+  font-size: 1.2vw;
+  font-family: "Arial", Segoe UI;
+  color: white;
+}
+
+.Line1con, .Line2con {
+  font-size: 1.2vw;
+  font-family: "Arial", Segoe UI;
+  color: white;
+}

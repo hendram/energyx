@@ -15,6 +15,7 @@ import Trainobj from './Trainobj';
 import Trainsyl from './Trainsyl';
 import Labsyl from './Labsyl';
 import Listedclass from './Listedclass';
+import Contactus from './Contactus';
 
 export const MainContext1 = React.createContext(null);
 export const MainContext2 = React.createContext(null);
@@ -26,7 +27,7 @@ const [menuover, setMenuover] = useState({ insidediv: 'no', trainingover: 'Train
 const custtrain = useRef({vis: 'null'});
 const [bottomchoice, setBottomchoice] = useState({ testi: "Testishow", cust: "Customerhid", 
 train: "Trainhid" });
-const [admintopbottomdiv, setAdmintopbottomdiv] = useState({admin: "Adminpagehid", 
+const [admintopbottomdiv, setAdmintopbottomdiv] = useState({admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow", 
 bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -38,6 +39,23 @@ const trainsylcon = useRef("");
 const labsylcon = useRef("");
 const fromwhere = useRef("");
 
+
+const handleContactus = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+      if(admintopbottomdiv.contactus === "Contactushid"){
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", contactus: "Contactusshow", 
+topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivhid", 
+bottomdiv: "Bottomdivshow",
+testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
+trainingobjective: "Trainobjhid", trainingsyllabus: "Trainsylhid", 
+labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
+          setAdmintopbottomdiv(newadmintopbottomdiv);
+}
+
+}
+
+
 const backorigin = () => {
     console.log(fromwhere.current);
      if(fromwhere.current === "admin"){
@@ -45,7 +63,7 @@ const backorigin = () => {
 }
     else if(fromwhere.current === "listedclass"){
       if(admintopbottomdiv.listedclass === "Listedclasshid"){
-          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivlarge", topinsidediv: "Topinsidedivlarge", topbottomdiv: "Topinsidebottomdivhid", 
 bottomdiv: "Bottomdivhid",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -63,7 +81,7 @@ const trainobjopen = (isitrainobjective, darimana) => {
               fromwhere.current = darimana;
 
        if(admintopbottomdiv.trainingobjective === "Trainobjhid"){
-          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivhid", 
 bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -81,7 +99,7 @@ const trainsylopen = (isitrainsyllabus, darimana) => {
               fromwhere.current = darimana;
 
        if(admintopbottomdiv.trainingsyllabus === "Trainsylhid"){
-          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivlarge", topinsidediv: "Topinsidedivlarge", topbottomdiv: "Topinsidebottomdivhid", 
 bottomdiv: "Bottomdivhid",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -98,7 +116,7 @@ const labsylopen = (isilabsyllabus, darimana) => {
               fromwhere.current = darimana;
 
        if(admintopbottomdiv.labsyllabus === "Labsylhid"){
-          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivlarge", topinsidediv: "Topinsidedivlarge", topbottomdiv: "Topinsidebottomdivhid", 
 bottomdiv: "Bottomdivhid",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -111,7 +129,7 @@ labsyllabus: "Labsylshow", listedclass: "Listedclasshid" };
 const opentrainsyllabus = (truefalse) => {
     if(truefalse === "true"){
         if(admintopbottomdiv.trainersyllabus === "Trainersyllabushid"){
-          let newadmintopbottomdiv = {admin: "Adminpagehid", 
+          let newadmintopbottomdiv = {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivhid",
 bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabusshow",
@@ -125,7 +143,7 @@ labsyllabus: "Labsylhid", listedclass: "Listedclasshid" }
 const opentestiin = (truefalse) => {
     if(truefalse === "true"){
         if(admintopbottomdiv.testiinput === "Testiinputhid"){
-          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivhid", 
 bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputshow", trainersyllabus: "Trainersyllabushid",
@@ -143,7 +161,7 @@ const c: AppContext1 = {labsylopen};
 const backfromtesti = (truefalse) => {
    if(truefalse === "true"){
  if(admintopbottomdiv.topbottomdiv === "Topinsidebottomdivhid"){
-          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow", 
 bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -158,7 +176,7 @@ labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
 const backoutfromtrain = (truefalse) => {
    if(truefalse === "true"){
  if(admintopbottomdiv.topbottomdiv === "Topinsidebottomdivhid"){
-          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow", 
 bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -172,7 +190,7 @@ labsyllabus: "Labsylhid", listedclass: "Listedclasshid" };
 const openedadmin = (truefalse) => {
     if(truefalse === "true"){
         if(admintopbottomdiv.admin === "Adminpagehid"){
-          let newadmintopbottomdiv =  {admin: "Adminpageshow", 
+          let newadmintopbottomdiv =  {admin: "Adminpageshow", contactus: "Contactushid", 
 topdiv: "Topdivlarge", topinsidediv: "Topinsidedivlarge", topbottomdiv: "Topinsidebottomdivhid", 
 bottomdiv: "Bottomdivhid",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -219,7 +237,7 @@ const backtoFrontpage = (event) => {
       event.preventDefault();
 
         if(admintopbottomdiv.topbottomdiv === "Topinsidebottomdivhid"){
-          let newadmintopbottomdiv = {admin: "Adminpagehid", 
+          let newadmintopbottomdiv = {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow",
 bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -251,7 +269,7 @@ const handleListedclass = (event) => {
       event.preventDefault();
 
        if(admintopbottomdiv.listedclass === "Listedclasshid"){
-          let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+          let newadmintopbottomdiv =  {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivlarge", topinsidediv: "Topinsidedivlarge", topbottomdiv: "Topinsidebottomdivhid", 
 bottomdiv: "Bottomdivhid",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -269,7 +287,7 @@ const handleTrainerregister = (event) => {
            let newbottomchoice = { testi: "Testihid", cust: "Customerhid", 
 train: "Trainshow" };
         custtrain.current.vis = "trainerclick";
-    let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+    let newadmintopbottomdiv =  {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow", 
 bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -289,7 +307,7 @@ const handleCustomerpage = (event) => {
       if(bottomchoice.cust === "Customerhid"){
            let newbottomchoice = { testi: "Testihid", cust: "Customershow", 
 train: "Trainhid" };
-    let newadmintopbottomdiv =  {admin: "Adminpagehid", 
+    let newadmintopbottomdiv =  {admin: "Adminpagehid", contactus: "Contactushid", 
 topdiv: "Topdivsmall", topinsidediv: "Topinsidedivsmall", topbottomdiv: "Topinsidebottomdivshow", 
 bottomdiv: "Bottomdivshow",
 testiinput: "Testiinputhid", trainersyllabus: "Trainersyllabushid",
@@ -310,7 +328,7 @@ return(
 <div className={admintopbottomdiv.topinsidediv}>
 <div className="Topinsidetopdiv">
 <div className="Topinsidetopleftdiv">
-<img src={Energyxpng} className="Imagelogo" width="100%" height="100%"></img>
+<img src={Energyxpng} className="Imagelogo"></img>
 </div> {/* closing for topinsidetopleftdiv */}
 <div className="Topinsidetoprightdiv">
 <button className="Corporatebutton" onClick={(e) => backtoFrontpage(e)} >
@@ -333,7 +351,10 @@ return(
 <span>Customer Page</span>
 </button>
 </div> {/* closing for menuover.trainingover */}
-</div> {/* closing for trainingmenubutton */}
+</div> {/* closing for trainingmenubuttondiv */}
+<button className="Contactusbutton" onClick={(e) => handleContactus(e)} >
+<span>Contact Us</span>
+</button>
 </div> {/* closing for topinsidetoprightdiv */}
 </div>  {/* closing for topinsidetopdiv */}
 <div className={admintopbottomdiv.admin} >
@@ -368,6 +389,9 @@ return(
 </div>
 <div className={admintopbottomdiv.testiinput} >
 <Testiinput backoutfromtesti={backfromtesti} />
+</div>
+<div className={admintopbottomdiv.contactus} >
+<Contactus />
 </div>
 <div className={admintopbottomdiv.topbottomdiv}>
 <div className="Classexamplediv">

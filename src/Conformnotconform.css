@@ -1,4 +1,4 @@
-.Outerpublishnotpage {
+.Outerconformnotpage {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -7,8 +7,8 @@
   height: 17vh;
 }
 
-.Trainernamepublishtextdiv, .Trainernamenyapublishtextdiv, 
-.Classtitlenyapublishtextdiv {
+.Trainernameconformtextdiv, .Trainernamenyaconformtextdiv, 
+.Classtitlenyaconformtextdiv {
   width: fit-content;
   height: fit-content;
   font-size: 1.1vw;
@@ -16,7 +16,7 @@
   color: black;  
 }
 
-.Trainernamerowdiv, .Classtitlerowdiv {
+.Trainernamerowconformdiv, .Classtitlerowconformdiv {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -29,7 +29,7 @@
   border: 1px black solid;
 }
 
-.Trainingpartdiv {
+.Trainingpartconformdiv {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -40,7 +40,22 @@
   border-radius: 1.5vh;
 }
 
-.Trainobjbut, .Trainsylbut, .Labsylbut, .Publishbut, .Nopublishbut {
+.Trainbutconformdiv {
+ display:flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ gap: 1vw;
+ margin-left: auto;
+ margin-right: 0px;
+ width: 50vw;
+ height: 5vh;
+ background-color: white;
+ border-radius: 1.5vh;
+ border: 1px black solid;
+}
+
+.Trainobjconformbut, .Trainsylconformbut, .Labsylconformbut, .Conformbutadmin, .Noconformbutadmin {
  display: flex;
   flex-direction: row;
   justify-content: center;
@@ -53,35 +68,34 @@
   border-radius: 1.5vh;
 }
 
-.Trainperdiv {
+
+.Trainperconformdiv {
  display:flex;
  flex-direction: row;
  justify-content: center;
  align-items: center;
  gap: 1vw;
- width: 25vw;
+ width: 18vw;
  height: 5vh;
  background-color: white;
  border-radius: 1.5vh;
  border: 1px black solid;
 }
 
-.Trainbutdiv {
- display:flex;
+.Trainjumlahdiv{
+display:flex;
  flex-direction: row;
  justify-content: center;
  align-items: center;
- gap: 1.5vw;
- margin-left: auto;
- margin-right: 0px;
- width: 50vw;
+ gap: 1vw;
+ width: 10vw;
  height: 5vh;
  background-color: white;
  border-radius: 1.5vh;
  border: 1px black solid;
 }
 
-.Trainpertext, .Trainperprops {
+.Trainperconformtext, .Trainjumlahtext {
  width: fit-content;
   height: fit-content;
   font-size: 1.1vw;
@@ -89,16 +103,55 @@
   color: black;  
 } 
 
-.Publishhid {
+
+.Trainperpropsconformdiv {
+ display:flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ width: 12vw;
+ height: 4vh;
+ background-color: white;
+ border-radius: 1.5vh;
+ border: 1px black solid;
+}
+
+.Trainjumlahpropsdiv{
+display:flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ width: 4vw;
+ height: 4vh;
+ background-color: white;
+ border-radius: 1.5vh;
+ border: 1px black solid;
+}
+
+.Trainperprops {
+width: 11vw;
+height: 2.5vh;
+border: none;
+outline: none;
+}
+
+.Trainjumlahprops {
+width: 3vw;
+height: 2.5vh;
+border: none;
+outline: none;
+}
+
+.Conformhidadmin {
   display: none;
 }
 
-.Publishshow{
+.Conformshowadmin{
 }
 
-.Notpublishhid {
+.Notconformhidadmin {
   display: none;
 }
 
-.Notpublishshow{
+.Notconformshowadmin{
 }
