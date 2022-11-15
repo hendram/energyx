@@ -18,17 +18,18 @@ const Checktrainersignindb = require('./Checktrainersignindb');
 const Checktrainertrainsyldb = require('./Checktrainertrainsyldb');
 const Checktrainertrainsyldbsec = require('./Checktrainertrainsyldbsec');
 const Checktrainertrainpubdb = require('./Checktrainertrainpubdb');
+const Checktrainertrainpubconformdb = require('./Checktrainertrainpubconformdb');
 const Updatecustomersignupdb = require('./Updatecustomersignupdb');
 const Insertcustomertestidb = require('./Insertcustomertestidb');
 const Inserttrainertrainsyldb = require('./Inserttrainertrainsyldb');
 const Updatetrainertrainpubdb = require('./Updatetrainertrainpubdb');
+const Updatetrainertrainpubconformdb = require('./Updatetrainertrainpubconformdb');
 const Updatetrainersignupdb = require('./Updatetrainersignupdb');
 const Fetchrandomtestidb = require('./Fetchrandomtestidb');
 const Fetchalltrainerdb = require('./Fetchalltrainerdb');
 const Fetchalltrainerpublishdb = require('./Fetchalltrainerpublishdb');
+const Fetchalltrainerpublishdblisted = require('./Fetchalltrainerpublishdblisted');
 const Fetchallclasssample = require('./Fetchallclasssample');
-const Inserttestsample = require('./Inserttestsample');
-const Fetchtestsample = require('./Fetchtestsample');
 
 let adminpass = "no";
 let newresult = [];
@@ -57,24 +58,35 @@ else if(req.body.isinya && req.body.testinsertsample) {
 }
 
 
-else if(req.body.forclasssample){
-    let resultclasssample = await Fetchallclasssample.fetchallclasssample();
-     if(resultclasssample.classname && resultclasssample.contentclass){
-       res.send({classname: resultclasssample.classname, contentclass: resultclasssample.contentclass});
-       }
-}
-
 else if(req.body.fortestimoni){
     let resultfetch = await Fetchrandomtestidb.fetchrandomtestidb();
    if(resultfetch.length < 5){
           newresult = [...resultfetch];
      console.log(newresult.length);
    }
-   else if(resultfetch.length > 5 && resultfetch.length < 10){
-      for(let x = 0; x < 5; x++){
-         newresult.push(resultfetch[Math.floor(Math.random(resultfetch.length)*10)]);
-     }
-}
+   else if(resultfetch.length >= 5 && resultfetch.length < 10){
+      while(newresult.length < 5){
+            let k = Math.floor(Math.random(resultfetch.length)*10);
+         if(k > resultfetch.length){
+              continue;
+              }
+           else {
+          newresult.push(resultfetch[k]);
+          }
+     } //closing for while
+}   //closing for elseif
+  else if(resultfetch.length >= 10 && resultfetch.length < 100){
+      while(newresult.length < 5){
+            let k = Math.floor(Math.random(resultfetch.length)*100);
+         if(k > resultfetch.length){
+              continue;
+              }
+           else {
+          newresult.push(resultfetch[k]);
+          }
+     } //closing for while
+}   //closing for elseif
+
     res.send({answer: newresult});
     
     console.log(newresult);
@@ -152,8 +164,25 @@ req.body.position, req.body.training, req.body.testimoni, req.body.suggestion);
 app.use('/trainer', async function(req, res) {
   console.log(req.body);
 
-if(req.body.alltrainerdata && req.body.untukpublish){
-  let resultchecktrain =  await Fetchalltrainerpublishdb.fetchalltrainerpublishdb();
+if(req.body.alltrainerdata && req.body.untukadmin){
+ let resultchecktrain =  await Fetchalltrainerpublishdb.fetchalltrainerpublishdb();
+  if(resultchecktrain){
+     res.send({answer: resultchecktrain});
+}
+  else {
+    console.log("no trainerdata yet");
+    }
+}
+
+else if(req.body.forclasssample){
+    let resultclasssample = await Fetchallclasssample.fetchallclasssample();
+     if(resultclasssample){
+       res.send({answer: resultclasssample});
+       }
+}
+
+else if(req.body.alltrainerdata && req.body.untukpublish){
+  let resultchecktrain =  await Fetchalltrainerpublishdblisted.fetchalltrainerpublishdblisted();
   if(resultchecktrain){
      res.send({answer: resultchecktrain});
 }
@@ -220,6 +249,23 @@ req.body.password);
 }     
 }
 
+// this part happen when admin click conform or notconform button
+else if(req.body.fromtrainerlist) {
+      console.log(req.body.conform);
+  let resultchecktrainthree = await Checktrainertrainpubconformdb.checktrainertrainpubconformdb(req.body.trainername,
+req.body.classtitle, req.body.trainobj, req.body.trainsyl, req.body.labsyl);
+   if(resultchecktrainthree.trainername && resultchecktrainthree.invitecode){
+    let resultinstrainthree = await Updatetrainertrainpubconformdb.updatetrainertrainpubconformdb(
+req.body.trainername, resultchecktrainthree.invitecode, req.body.classtitle, 
+req.body.trainobj, req.body.trainper, req.body.jumlah, req.body.trainsyl, req.body.labsyl,
+ resultchecktrainthree.topublish, req.body.conform);
+    if(resultinstrainthree === "1updated"){
+         res.send({answer: "success"}); 
+       console.log("1updated");
+}         
+}
+}
+
 // this part begin insert into trainertabledata
 else if(req.body.trainername && req.body.invitecode && req.body.classtitle && req.body.trainobj && 
 req.body.trainper && req.body.trainsyl && req.body.labsyl) {
@@ -261,6 +307,8 @@ req.body.trainobj, req.body.trainper, req.body.trainsyl, req.body.labsyl, req.bo
 }         
 }
 }
+
+
 });
 
 happ.use('*', function(req, res) {

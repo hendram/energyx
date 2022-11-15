@@ -4,7 +4,7 @@ const _ = require('underscore');
 const url = "mongodb://localhost:27017/";
 const client = new MongoClient(url);
 
-async function fetchalltrainerpublishdb() {
+async function fetchalltrainerpublishdblisted() {
 try {
     await client.connect()
     const database = client.db('trainer');
@@ -24,5 +24,5 @@ finally {
 }
 
 
-module.exports = {fetchalltrainerpublishdb};
+module.exports = {fetchalltrainerpublishdblisted};
 

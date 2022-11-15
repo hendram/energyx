@@ -7,10 +7,10 @@ const client = new MongoClient(url);
 async function fetchallclasssample() {
 try {
     await client.connect()
-    const database = client.db('customer');
-    const custtablename = database.collection('customerclasssample');
+    const database = client.db('trainer');
+    const custtablename = database.collection('trainertabledata');
 
-    const exists = await custtablename.find().toArray();
+    const exists = await custtablename.find().sort({_id: -1}).limit(5).toArray();
    if(exists !== null){
      return exists;
 }      

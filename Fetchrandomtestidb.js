@@ -11,8 +11,8 @@ try {
     const custtablename = database.collection('customertabledata');
     // Query for a movie that has the title 'Back to the Future'
 
-    const exists = await custtablename.find().project({training: 1, testimoni: 1, name: 1, position: 1,
-companyname: 1}).toArray();
+    const exists = await custtablename.aggregate([{$sample: { size: 99}}]).project({training: 1, testimoni: 1, 
+name: 1, position: 1, companyname: 1}).toArray();
    if(exists !== null){
      return exists;
 }      

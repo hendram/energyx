@@ -12,8 +12,8 @@ try {
     // Query for a movie that has the title 'Back to the Future'
     const inserted = {trainername: trainernamenya,   invitecode: invitecodenya, 
  classtitle: classtitlenya, trainingobjective: trainingobjectivenya, 
-trainingperiod: trainingperiodnya, trainingsyllabus: trainingsyllabusnya, 
-labsyllabus: labsyllabusnya, topublish: topublishnya };
+trainingperiod: trainingperiodnya, jumlah: 0, trainingsyllabus: trainingsyllabusnya, 
+labsyllabus: labsyllabusnya, topublish: topublishnya, conform: "no" };
     const exist = await traintabledata.insertOne(inserted);
     if(exist  === null ){
       return "failedinsert";

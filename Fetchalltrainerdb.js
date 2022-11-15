@@ -11,7 +11,7 @@ try {
     const traintablename = database.collection('trainertabledata');
 
     const exists = await traintablename.find({ $or: [{topublish: "yes"}, {topublish: "no"}]}).project({trainername: 1, classtitle: 1, trainingobjective: 1, 
-trainingperiod: 1, trainingsyllabus: 1, labsyllabus: 1, topublish: 1}).toArray();
+trainingperiod: 1, jumlah: 1, trainingsyllabus: 1, labsyllabus: 1, topublish: 1}).toArray();
    if(exists !== null){
      return exists;
 }      
