@@ -3,8 +3,12 @@
 This training center project usefull to managing class, trainer and customer feedback.
  
 **Screenshots**
+
+Mainpage
 ![Main Page](mainpage.png)
 
+
+Trainerpage
 ![Trainer input](trainerinput.png)
 
 
