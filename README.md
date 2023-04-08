@@ -1,9 +1,11 @@
-Training Center Management
+**Training Center Management**
 
 This training center project usefull to managing class, trainer and customer feedback.
  
-Screenshots
+**Screenshots**
 ![Main Page](mainpage.png)
+
+![Trainer input](trainerinput.png)
 
 
 **Installation**
