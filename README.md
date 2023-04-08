@@ -5,10 +5,12 @@ This training center project usefull to managing class, trainer and customer fee
 **Screenshots**
 
 Mainpage
+
 ![Main Page](mainpage.png)
 
 
 Trainerpage
+
 ![Trainer input](trainerinput.png)
 
 
