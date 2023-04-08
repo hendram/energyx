@@ -6,9 +6,9 @@ Screenshots
 ![Main Page](mainpage.png)
 
 
-##Installation
+**Installation**
 
-**To install the project, follow these steps:**
+To install the project, follow these steps:
 
 Clone the repository: git clone https://github.com/hendram/energyx.git
 
